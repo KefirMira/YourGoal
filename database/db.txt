@@ -1,0 +1,72 @@
+create table "user"
+(
+    id         serial
+        primary key,
+    surname    varchar(75),
+    name       varchar(80),
+    login      varchar(75),
+    password   varchar(75),
+    birthday date
+);
+
+create table category
+(
+    id   serial
+        primary key,
+    name varchar(50)
+);
+
+create table folder
+(
+    id   serial
+        primary key,
+    name varchar(50)
+);
+
+create table habit
+(
+    id   serial
+        primary key,
+    name varchar(50),
+    dateStart date,
+    dateEnd date,
+    userId INTEGER REFERENCES "user" (id)
+);
+
+create table goal
+(
+    id   serial
+        primary key,
+    name varchar(50),
+    dateStart date,
+    dateEnd date,
+    userId INTEGER REFERENCES "user" (id),
+    folderId INTEGER REFERENCES folder (id)
+);
+
+create table tracker (
+    id   serial
+        primary key,
+    habitId INTEGER REFERENCES habit (id),
+    dateOfCompletion date,
+    accomplishment boolean
+);
+
+create table onetimeTask(
+    id   serial
+        primary key,
+    "name" varchar(200),
+    dateDelete date,
+    userId INTEGER REFERENCES "user" (id),
+    folderId INTEGER REFERENCES folder (id)
+);
+
+
+create table taskOnGoal(
+     id   serial
+         primary key,
+     "name" varchar(200),
+     dateDelete date,
+     goalId INTEGER REFERENCES goal (id),
+     categoryId INTEGER REFERENCES category (id)
+);
