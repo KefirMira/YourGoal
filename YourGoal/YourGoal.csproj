@@ -63,8 +63,12 @@
             <DependentUpon>MainWindow.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+        <Page Include="Pages\AuthPage.xaml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Pages\AuthPage.xaml.cs">
+          <DependentUpon>AuthPage.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Properties\AssemblyInfo.cs">
             <SubType>Code</SubType>
         </Compile>
@@ -80,6 +84,15 @@
     </ItemGroup>
     <ItemGroup>
         <None Include="App.config"/>
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Models\" />
+      <Folder Include="Services\" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="src\Ellipse 1.png" />
+      <Content Include="src\Ellipse 2.png" />
+      <Content Include="src\office-task-management-interface 1.png" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
 </Project>
