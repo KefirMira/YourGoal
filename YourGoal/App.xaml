@@ -5,15 +5,13 @@
              xmlns:ui="http://schemas.modernwpf.com/2019"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <ResourceDictionary x:Key="RDic">
+        <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ui:ThemeResources />
                 <ui:XamlControlsResources />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-        
-        <FontFamily x:Key="Gotham_Pro">pack://application:,,,/Fonts/#gothampro_medium</FontFamily>
-        
+
     </Application.Resources>
     
 </Application>

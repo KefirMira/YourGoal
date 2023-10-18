@@ -43,7 +43,7 @@
         
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Image MinHeight="100" MinWidth="100"></Image>
-            <TextBlock FontFamily="../src/Fonts/gothampro_medium.otf">Добро пожаловать!</TextBlock>
+            <TextBlock FontFamily="../src/fonts/#Gotham Pro Light" FontSize="40">Добро пожаловать!</TextBlock>
             <TextBox Margin="5" x:Name="LoginTextBox"></TextBox>
             <TextBox Margin="5" x:Name="PasswordTextBox"></TextBox>
             <StackPanel Orientation="Horizontal" >

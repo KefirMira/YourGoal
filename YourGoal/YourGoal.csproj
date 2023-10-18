@@ -133,16 +133,18 @@
       <Resource Include="src\YourGoalLogo.png" />
     </ItemGroup>
     <ItemGroup>
-      <Resource Include="src\Fonts\gothampro.ttf" />
-      <Resource Include="src\Fonts\gothampro_black.ttf" />
-      <Resource Include="src\Fonts\gothampro_blackitalic.ttf" />
-      <Resource Include="src\Fonts\gothampro_bold.ttf" />
-      <Resource Include="src\Fonts\gothampro_bolditalic.ttf" />
-      <Resource Include="src\Fonts\gothampro_italic.ttf" />
-      <Resource Include="src\Fonts\gothampro_light.ttf" />
-      <Resource Include="src\Fonts\gothampro_lightitalic.ttf" />
-      <Resource Include="src\Fonts\gothampro_medium.otf" />
-      <Resource Include="src\Fonts\gothampro_mediumitalic.otf" />
+      <Resource Include="src\fonts\gothampro.ttf">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="src\fonts\gothampro_black.ttf" />
+      <Resource Include="src\fonts\gothampro_blackitalic.ttf" />
+      <Resource Include="src\fonts\gothampro_bold.ttf" />
+      <Resource Include="src\fonts\gothampro_bolditalic.ttf" />
+      <Resource Include="src\fonts\gothampro_italic.ttf" />
+      <Resource Include="src\fonts\gothampro_light.ttf" />
+      <Resource Include="src\fonts\gothampro_lightitalic.ttf" />
+      <Resource Include="src\fonts\gothampro_medium.otf" />
+      <Resource Include="src\fonts\gothampro_mediumitalic.otf" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
