@@ -24,10 +24,10 @@
                     Margin="5"
                     VerticalAlignment="Center"
                     Grid.ColumnSpan="3" >
-        <ComboBox x:Name="NavigateComboBox"
+        <Button x:Name="NavigateButton"
                   MinHeight="20"
                   MinWidth="100"
-                  HorizontalAlignment="Left"></ComboBox>
+                  HorizontalAlignment="Left"></Button>
         </StackPanel>
             <TextBlock 
                 HorizontalAlignment="Right" 
@@ -50,7 +50,6 @@
             Grid.Row="2"
             Orientation="Vertical"
             Margin="5"
-            VerticalAlignment="Center"
             Grid.Column="0">
             <StackPanel 
                 Orientation="Horizontal">

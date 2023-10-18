@@ -25,11 +25,11 @@ namespace YourGoal.Pages
             User user = au.AuthUser(Login, Password);
             if (user == null)
             {
-                MessageBox.Show("Ошибка");
+                MessageBox.Show("Ошибка!Неверный логин или пароль!");
             }
             else
             {
-                MessageBox.Show("!!");
+                NavigationService.Navigate(new MainPage(user));
             }
         }
 
