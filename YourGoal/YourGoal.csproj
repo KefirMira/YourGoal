@@ -101,6 +101,9 @@
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
         </ApplicationDefinition>
+        <Compile Include="Pages\MainPage.xaml.cs">
+          <DependentUpon>MainPage.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Services\AuthService.cs" />
         <Page Include="MainWindow.xaml">
             <Generator>MSBuild:Compile</Generator>
@@ -115,6 +118,7 @@
             <SubType>Code</SubType>
         </Compile>
         <Page Include="Pages\AuthPage.xaml" />
+        <Page Include="Pages\MainPage.xaml" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Models\User.cs" />

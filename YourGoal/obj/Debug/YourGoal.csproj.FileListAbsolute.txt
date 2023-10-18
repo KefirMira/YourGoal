@@ -48,3 +48,5 @@ C:\Users\lenovo\RiderProjects\YourGoal\YourGoal\obj\Debug\YourGoal.csproj.CoreCo
 C:\Users\lenovo\RiderProjects\YourGoal\YourGoal\obj\Debug\YourGoal.csproj.CopyComplete
 C:\Users\lenovo\RiderProjects\YourGoal\YourGoal\obj\Debug\YourGoal.exe
 C:\Users\lenovo\RiderProjects\YourGoal\YourGoal\obj\Debug\YourGoal.pdb
+C:\Users\lenovo\RiderProjects\YourGoal\YourGoal\obj\Debug\Pages\MainPage.g.cs
+C:\Users\lenovo\RiderProjects\YourGoal\YourGoal\obj\Debug\Pages\MainPage.baml
