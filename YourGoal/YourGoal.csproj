@@ -63,6 +63,9 @@
         <Compile Include="Pages\MainPage.xaml.cs">
           <DependentUpon>MainPage.xaml</DependentUpon>
         </Compile>
+        <Compile Include="Pages\RegPage.xaml.cs">
+          <DependentUpon>RegPage.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Services\AllGoalServices.cs" />
         <Compile Include="Services\AllTaskServices.cs" />
         <Compile Include="Services\AuthService.cs" />
@@ -80,6 +83,7 @@
         </Compile>
         <Page Include="Pages\AuthPage.xaml" />
         <Page Include="Pages\MainPage.xaml" />
+        <Page Include="Pages\RegPage.xaml" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Models\User.cs" />
@@ -148,6 +152,9 @@
     </ItemGroup>
     <ItemGroup>
       <Resource Include="src\office-avatar-of-a-man-with-glasses-in-a-circle 1.png" />
+    </ItemGroup>
+    <ItemGroup>
+      <Resource Include="src\office-woman-multitasking-in-the-office.png" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

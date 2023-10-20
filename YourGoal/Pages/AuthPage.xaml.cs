@@ -36,11 +36,12 @@ namespace YourGoal.Pages
         private void EnterButton_OnClick(object sender, RoutedEventArgs e)
         {
             throw new System.NotImplementedException();
+
         }
 
         private void RegButton_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new System.NotImplementedException();
+            NavigationService.Navigate(new RegPage());
         }
     }
 }
