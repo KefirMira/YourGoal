@@ -146,5 +146,8 @@
       <Resource Include="src\fonts\gothampro_medium.otf" />
       <Resource Include="src\fonts\gothampro_mediumitalic.otf" />
     </ItemGroup>
+    <ItemGroup>
+      <Resource Include="src\office-avatar-of-a-man-with-glasses-in-a-circle 1.png" />
+    </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
