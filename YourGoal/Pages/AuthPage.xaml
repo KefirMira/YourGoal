@@ -6,107 +6,108 @@
       xmlns:local="clr-namespace:YourGoal.Pages"
       xmlns:ui="http://schemas.modernwpf.com/2019"
       mc:Ignorable="d"
-      Title="AuthPage" MaxWidth="800" MaxHeight="600" Height="600" Width="800">
-    
+      Title="AuthPage" MaxWidth="800" MaxHeight="600" Height="600" Width="800" Background="#F6F9FF">
+
     <Grid ShowGridLines="True">
-        
+
         <!-- Разметка -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*"></ColumnDefinition>
-            <ColumnDefinition Width="5*"></ColumnDefinition>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
-        
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"></RowDefinition>
-            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
-        
+
         <!-- Лого -->
-        <Image Grid.Column="0" Grid.Row="0" 
-               Source="/src/YourGoalLogo.png" 
-               MaxWidth="130" MaxHeight="35" 
+        <Image Grid.Column="0" Grid.Row="0"
+               Source="/src/YourGoalLogo.png"
+               MaxWidth="130" MaxHeight="35"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
-               Margin="30"></Image>
-        
+               Margin="30"/>
+
         <!-- Картинки слева -->
-        <Image Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" 
-               Source="../src/Ellipse 1.png" VerticalAlignment="Bottom" 
-               MaxHeight="340"/>
-        <Image Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" 
-               Source="../src/Ellipse 2.png" VerticalAlignment="Bottom" 
-               MaxHeight="300"/>
-        <Image Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" 
-               Source="../src/office-task-management-interface 1.png" VerticalAlignment="Bottom" 
-               MaxHeight="300"/>
-        
+        <Image Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"
+               Source="../src/Ellipse 1.png" VerticalAlignment="Bottom"
+               MaxHeight="340" />
+        <Image Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"
+               Source="../src/Ellipse 2.png" VerticalAlignment="Bottom"
+               MaxHeight="300" />
+        <Image Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"
+               Source="../src/office-task-management-interface 1.png" VerticalAlignment="Bottom"
+               MaxHeight="300" />
+
         <!-- Кнопки в хэдере -->
-        <StackPanel Grid.Column="1" 
-                    HorizontalAlignment="Right" 
-                    VerticalAlignment="Top" 
+        <StackPanel Grid.Column="1"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
                     Margin="15" Orientation="Horizontal">
-            
+
             <Button x:Name="EnterButton" Margin="5"
-                    MinWidth="100" MinHeight="35" 
+                    MinWidth="100" MinHeight="35"
                     FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium"
                     Click="EnterButton_OnClick" Content="Вход" Foreground="#F6F9FF"
-                    Background="#58A4B0" ui:ControlHelper.CornerRadius="20"/>
-            
-            <Button x:Name="RegButton" Content="Создать аккаунт" 
+                    Background="#58A4B0" ui:ControlHelper.CornerRadius="20" />
+
+            <Button x:Name="RegButton" Content="Создать аккаунт"
                     MinWidth="160" MinHeight="35" Margin="5"
                     FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium"
                     Click="RegButton_OnClick" Foreground="#58A4B0"
-                    ui:ControlHelper.CornerRadius="20"/>
-            
+                    ui:ControlHelper.CornerRadius="20" BorderBrush="#58A4B0" 
+                    BorderThickness="2" />
+
         </StackPanel>
-        
+
         <!-- Взаимодействие -->
-        <StackPanel Grid.Column="1" Grid.Row="1"  Orientation="Vertical" 
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical"
                     HorizontalAlignment="Center" VerticalAlignment="Center">
-           
+
             <!-- Картинка и заголовок -->
             <StackPanel Margin="0,0,0,50" HorizontalAlignment="Center">
-                
-                <Image Source="../src/office-avatar-of-a-man-with-glasses-in-a-circle 1.png" 
-                       MaxHeight="80" MaxWidth="80" Margin="10"/>
-                
-               <TextBlock Margin="10" FontFamily="../src/fonts/#Gotham Pro Medium" 
-                          FontSize="25" Text="Добро пожаловать!" Foreground="#373F51"/>
-                
+
+                <Image Source="../src/office-avatar-of-a-man-with-glasses-in-a-circle 1.png"
+                       MaxHeight="80" MaxWidth="80" Margin="10" />
+
+                <TextBlock Margin="10" FontFamily="../src/fonts/#Gotham Pro Medium"
+                           FontSize="25" Text="Добро пожаловать!" Foreground="#373F51" />
+
             </StackPanel>
-            
+
             <!-- Боксы -->
-            <StackPanel >
-                
-                <TextBox Margin="10" x:Name="LoginTextBox" 
+            <StackPanel>
+
+                <TextBox Margin="10" x:Name="LoginTextBox"
                          ui:ControlHelper.PlaceholderText="Логин" MinHeight="40"
                          ui:ControlHelper.CornerRadius="10" Padding="10"
                          FontSize="14" FontFamily="../src/fonts/#Gotham Pro Light" />
-                
-                <TextBox Margin="10" FontFamily="../src/fonts/#Gotham Pro" 
+
+                <TextBox Margin="10" FontFamily="../src/fonts/#Gotham Pro"
                          ui:ControlHelper.PlaceholderText="Пароль" MinHeight="40"
                          ui:ControlHelper.CornerRadius="10" Padding="10"
-                         FontSize="14" FontWeight="Light" x:Name="PasswordTextBox"/>
+                         FontSize="14" FontWeight="Light" x:Name="PasswordTextBox" />
             </StackPanel>
-            
+
             <!-- Кнопки -->
             <StackPanel Orientation="Horizontal" Margin="20">
-                
-                <Button x:Name="LoginButton"  Content="Войти"
+
+                <Button x:Name="LoginButton" Content="Войти"
                         Click="LoginButton_OnClick" HorizontalAlignment="Left"
                         FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium"
                         Padding="40,10,40,10" FontSize="16"
-                        Foreground="#F6F9FF" Background="#58A4B0" 
+                        Foreground="#F6F9FF" Background="#58A4B0"
                         ui:ControlHelper.CornerRadius="20" />
-                
+
                 <Button x:Name="ForgotYourPasswordButton" Margin="10" Content="Забыли пароль?"
                         Click="ForgotYourPasswordButton_OnClick" FontSize="14"
                         FontFamily="../src/fonts/#Gotham Pro" FontWeight="Light"
-                        Foreground="#58A4B0"/>
-                
+                        Foreground="#58A4B0" Background="Transparent" BorderBrush="Transparent" />
+
             </StackPanel>
-            
+
         </StackPanel>
-        
+
     </Grid>
 </Page>
