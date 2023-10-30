@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"
-            Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -35,22 +34,41 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="System"/>
-        <Reference Include="System.Core"/>
-        <Reference Include="System.Data"/>
-        <Reference Include="System.Xml"/>
+        <Reference Include="mscorlib" />
+        <Reference Include="netstandard" />
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Numerics" />
+        <Reference Include="System.Xml" />
         <Reference Include="System.Xaml">
             <RequiredTargetFramework>4.0</RequiredTargetFramework>
         </Reference>
-        <Reference Include="WindowsBase"/>
-        <Reference Include="PresentationCore"/>
-        <Reference Include="PresentationFramework"/>
+        <Reference Include="WindowsBase" />
+        <Reference Include="PresentationCore" />
+        <Reference Include="PresentationFramework" />
     </ItemGroup>
     <ItemGroup>
         <ApplicationDefinition Include="App.xaml">
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
         </ApplicationDefinition>
+        <Compile Include="Models\Category.cs" />
+        <Compile Include="Models\Folder.cs" />
+        <Compile Include="Models\Goal.cs" />
+        <Compile Include="Models\Habit.cs" />
+        <Compile Include="Models\OneTimeTask.cs" />
+        <Compile Include="Models\TaskOnGoal.cs" />
+        <Compile Include="Models\Tracker.cs" />
+        <Compile Include="Pages\MainPage.xaml.cs">
+          <DependentUpon>MainPage.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Pages\RegPage.xaml.cs">
+          <DependentUpon>RegPage.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Services\AllGoalServices.cs" />
+        <Compile Include="Services\AllTaskServices.cs" />
+        <Compile Include="Services\AuthService.cs" />
         <Page Include="MainWindow.xaml">
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
@@ -63,8 +81,15 @@
             <DependentUpon>MainWindow.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+        <Page Include="Pages\AuthPage.xaml" />
+        <Page Include="Pages\MainPage.xaml" />
+        <Page Include="Pages\RegPage.xaml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Models\User.cs" />
+        <Compile Include="Pages\AuthPage.xaml.cs">
+          <DependentUpon>AuthPage.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Properties\AssemblyInfo.cs">
             <SubType>Code</SubType>
         </Compile>
@@ -79,7 +104,57 @@
         </EmbeddedResource>
     </ItemGroup>
     <ItemGroup>
-        <None Include="App.config"/>
+        <None Include="App.config" />
     </ItemGroup>
-    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
+    <ItemGroup>
+      <Resource Include="src\Ellipse 1.png" />
+      <Resource Include="src\Ellipse 2.png" />
+      <Resource Include="src\office-task-management-interface 1.png" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0-rc.2.23479.6" />
+      <PackageReference Include="Microsoft.Bcl.HashCode" Version="1.1.1" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0-rc.2.23479.6" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0-rc.2.23479.6" />
+      <PackageReference Include="Microsoft.Windows.SDK.Contracts" Version="10.0.18362.2005" />
+      <PackageReference Include="ModernWpfUI" Version="0.9.7-preview.2" />
+      <PackageReference Include="Npgsql" Version="8.0.0-rc.2" />
+      <PackageReference Include="System.Buffers" Version="4.5.1" />
+      <PackageReference Include="System.Collections.Immutable" Version="8.0.0-rc.2.23479.6" />
+      <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="8.0.0-rc.2.23479.6" />
+      <PackageReference Include="System.Memory" Version="4.5.5" />
+      <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
+      <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
+      <PackageReference Include="System.Runtime.WindowsRuntime" Version="4.6.0" />
+      <PackageReference Include="System.Runtime.WindowsRuntime.UI.Xaml" Version="4.6.0" />
+      <PackageReference Include="System.Text.Encodings.Web" Version="8.0.0-rc.2.23479.6" />
+      <PackageReference Include="System.Text.Json" Version="8.0.0-rc.2.23479.6" />
+      <PackageReference Include="System.Threading.Channels" Version="8.0.0-rc.2.23479.6" />
+      <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
+      <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+    </ItemGroup>
+    <ItemGroup>
+      <Resource Include="src\YourGoalLogo.png" />
+    </ItemGroup>
+    <ItemGroup>
+      <Resource Include="src\fonts\gothampro.ttf">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="src\fonts\gothampro_black.ttf" />
+      <Resource Include="src\fonts\gothampro_blackitalic.ttf" />
+      <Resource Include="src\fonts\gothampro_bold.ttf" />
+      <Resource Include="src\fonts\gothampro_bolditalic.ttf" />
+      <Resource Include="src\fonts\gothampro_italic.ttf" />
+      <Resource Include="src\fonts\gothampro_light.ttf" />
+      <Resource Include="src\fonts\gothampro_lightitalic.ttf" />
+      <Resource Include="src\fonts\gothampro_medium.otf" />
+      <Resource Include="src\fonts\gothampro_mediumitalic.otf" />
+    </ItemGroup>
+    <ItemGroup>
+      <Resource Include="src\office-avatar-of-a-man-with-glasses-in-a-circle 1.png" />
+    </ItemGroup>
+    <ItemGroup>
+      <Resource Include="src\office-woman-multitasking-in-the-office.png" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

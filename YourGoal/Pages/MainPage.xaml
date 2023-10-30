@@ -1,0 +1,157 @@
+<Page x:Class="YourGoal.Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:YourGoal.Pages"
+      mc:Ignorable="d"
+      Title="MainPage" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <!-- Верхняя панель -->
+        <StackPanel Grid.Row="0" 
+                    Orientation="Horizontal"  
+                    Margin="5"
+                    VerticalAlignment="Center"
+                    Grid.ColumnSpan="3" >
+        <Button x:Name="NavigateButton"
+                  MinHeight="20"
+                  MinWidth="100"
+                  HorizontalAlignment="Left"></Button>
+        </StackPanel>
+            <TextBlock 
+                HorizontalAlignment="Right" 
+                       Grid.ColumnSpan="3" 
+                       Grid.Row="0">ТвояЗадача</TextBlock>
+        
+        <!-- Календарь -->
+        <StackPanel 
+            Grid.Row="1"
+            Orientation="Vertical"
+            VerticalAlignment="Center"
+            Margin="5"
+            Grid.ColumnSpan="3">
+            <TextBlock>Календарь</TextBlock> 
+            <TextBlock>Антон придумает)</TextBlock>
+        </StackPanel>
+        
+        <!-- Задачи -->
+        <StackPanel 
+            Grid.Row="2"
+            Orientation="Vertical"
+            Margin="5"
+            Grid.Column="0">
+            <StackPanel 
+                Orientation="Horizontal">
+                    <TextBlock>Задачи</TextBlock>
+                    <Button>К списку -></Button>
+            </StackPanel>
+            <ListView>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <!-- Папка -->
+                                    <TextBlock Text="{Binding }"></TextBlock> 
+                                    <!-- Приоритет -->
+                                    <TextBlock Text="{Binding }"></TextBlock> 
+                                    <!-- Время -->
+                                    <TextBlock Text="{Binding }"></TextBlock>
+                                </StackPanel>
+                                <!-- Наименование задачи -->
+                                <TextBlock></TextBlock>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <!-- Кнопка редактирования -->
+                                <Button></Button>
+                                <!-- Чекбокс о выполнении -->
+                                <CheckBox></CheckBox>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        
+        <!-- Цели -->
+        <StackPanel 
+            Grid.Column="1" 
+            Grid.Row="2" 
+            Orientation="Vertical">
+            <StackPanel Orientation="Vertical">
+                <TextBlock>Цели</TextBlock>
+                <Button >К списку -></Button>
+            </StackPanel>
+            <StackPanel 
+                Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Button>туда</Button>
+                    <!-- Наименование цели -->
+                    <TextBlock Text="{Binding }"></TextBlock>
+                    <Button>сюда</Button>
+                </StackPanel>
+                <!-- Описание цели -->
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock>Прогресс</TextBlock>
+                        <!-- Прогресс -->
+                        <TextBlock Text="{ Binding}"></TextBlock>
+                        <!-- Дата выполнения или создания -->
+                        <TextBlock Text="{Binding}"></TextBlock>
+                        <!-- Осталось дней -->
+                        <TextBlock Text="{ Binding}"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- Кнопка добавления -->
+                        <Button>+</Button>
+                        <!-- График -->
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        
+        <!-- Привычки -->
+        <StackPanel 
+            Grid.Column="2" 
+            Grid.Row="2"
+            Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Привычки</TextBlock>
+                <Button>к списку -></Button>
+            </StackPanel>
+            <ListView>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Vertical">
+                                <!-- Счётсчик -->
+                                <TextBlock Text="{Binding}"></TextBlock> 
+                                <!-- Наименование привычки-->
+                                <TextBlock Text="{Binding}"></TextBlock>
+                            </StackPanel>
+                             <StackPanel Orientation="Vertical">
+                                 <!-- Кнопка редактиварония -->
+                                 <Button></Button>
+                                 <!-- Чекбокс на выполнение -->
+                                 <CheckBox></CheckBox>
+                             </StackPanel>
+                            
+                        </StackPanel>
+                        
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Page>

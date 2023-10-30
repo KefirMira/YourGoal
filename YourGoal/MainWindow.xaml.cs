@@ -1,4 +1,6 @@
-﻿namespace YourGoal
+﻿using YourGoal.Pages;
+
+namespace YourGoal
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -8,6 +10,7 @@
         public MainWindow()
         {
             InitializeComponent();
+            MainFrame.Navigate(new AuthPage());
         }
     }
 }
