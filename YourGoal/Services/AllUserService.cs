@@ -31,6 +31,21 @@ namespace YourGoal.Services
             }
             return authUser;
         }
+
+        public  bool CreateNewUser(string Name, string Login, string Password)
+        {
+            _connection.Open();
+            NpgsqlCommand command = new NpgsqlCommand($"insert into user(name,login,password) values ('{Name}','{Login}','{Password}');", _connection);
+            try
+            {
+                command.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         
     }
 }

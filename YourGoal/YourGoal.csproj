@@ -123,7 +123,7 @@
       <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0-rc.2.23479.6" />
       <PackageReference Include="Microsoft.Windows.SDK.Contracts" Version="10.0.18362.2005" />
       <PackageReference Include="ModernWpfUI" Version="0.9.7-preview.2" />
-      <PackageReference Include="Npgsql" Version="8.0.0-rc.2" />
+      <PackageReference Include="Npgsql" Version="7.0.6" />
       <PackageReference Include="System.Buffers" Version="4.5.1" />
       <PackageReference Include="System.Collections.Immutable" Version="8.0.0-rc.2.23479.6" />
       <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="8.0.0-rc.2.23479.6" />

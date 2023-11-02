@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:YourGoal.Pages"
       xmlns:ui="http://schemas.modernwpf.com/2019"
       mc:Ignorable="d"
-      Title="MainPage" Width="800" Height="600" Background="#F6F9FF">
+      Title="MainPage" Width="800" Height="600" Background="#F6F9FF" Loaded="MainPage_OnLoaded">
     
     <Grid ShowGridLines="True">
         
@@ -73,7 +73,7 @@
                 
             </StackPanel>
             
-            <ListView>
+            <ListView x:Name="AllTaskListView">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -83,22 +83,22 @@
                                     <!-- Папка -->
                                     <Image Source="../src/iconFolder.png" 
                                            MaxHeight="12" MaxWidth="12"/>
-                                    <TextBlock Text="{Binding }" Background="#58A4B0"
+                                    <TextBlock Text="{Binding Folder.Name}" Background="#58A4B0"
                                                 FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Light"
                                                 FontSize="12" Foreground="#F6F9FF"/> 
                                     
                                     <!-- Приоритет -->
-                                    <TextBlock Text="{Binding }" 
+                                    <TextBlock Text="{Binding Priority.Name}" 
                                                FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Light"
                                                FontSize="12"/> 
                                     <!-- Время -->
-                                    <TextBlock Text="{Binding }" 
+                                    <TextBlock Text="{Binding DateDelete}" 
                                                FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Light"
                                                FontSize="12"/>
                                 </StackPanel>
                                 
                                 <!-- Наименование задачи -->
-                                <TextBlock Text="{Binding }" 
+                                <TextBlock Text="{Binding Name}" 
                                            FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Medium"
                                            FontSize="18"/>
                             </StackPanel>

@@ -8,36 +8,48 @@ namespace YourGoal.Services
 {
     public class AllTaskServices
     {
-        private string connectionString = "Host = localhost; Database = yourgoaldb; User ID = postgres; Password= 2347";
+        private string connectionString = "Host = localhost; Database = yourgoaldb; User ID = postgres; Password= 2347;Encoding= ";
         private static NpgsqlConnection _connection;
         public AllTaskServices()
         {
             _connection = new NpgsqlConnection(connectionString);
         }
         //таски на одного пользователя
-        public static List<Task> GetAllTask(User user)
+        public List<Task> GetAllTask(User user)
         {
+            _connection.Open();
+            NpgsqlCommand command1 = new NpgsqlCommand("set client_encoding = 'UTF8'", _connection);
+            command1.ExecuteNonQuery();
             List<Task> tasks = new List<Task>();
-            NpgsqlCommand command = new NpgsqlCommand($"select * from task where userid={user.Id}", _connection);
+            NpgsqlCommand command = new NpgsqlCommand($"select t.id t_id, t.name t_name, t.dateDelete t_deleteDate, p.name p_name,p.id p_id, f.id f_id, f.name f_name  from task t join folder f on t.folderId = f.id join priority p on p.id = t.priorityId where userId = {user.Id}", _connection);
+            //NpgsqlCommand command = new NpgsqlCommand($"select *  from task t join folder f on t.folderId = f.id join priority p on p.id = t.priorityId where userId = {user.Id}", _connection);
+            //NpgsqlCommand command = new NpgsqlCommand($"select * from task where userid={user.Id}",_connection);
             NpgsqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
                 Task task = new Task();
-                task.Id = Convert.ToInt32(reader["id"].ToString());
-                task.Name = reader["name"].ToString();
-                task.DateDelete = Convert.ToDateTime(reader["datedelete"].ToString());
-                task.Folder = GetFolderForGoal(Convert.ToInt32(reader["folderId"].ToString()));
-                task.Priority = GetPriorityToTask(Convert.ToInt32(reader["priorityid"].ToString()));
-                task.User = GetUserToTask(Convert.ToInt32(reader["userid"].ToString()));
+                task.Id = Convert.ToInt32(reader.GetInt32(reader.GetOrdinal("t_id")).ToString());
+                task.Name = reader.GetString(reader.GetOrdinal("t_name")).ToString();
+                task.DateDelete = reader.GetDateTime(reader.GetOrdinal("t_deleteDate"));
+                Folder folder = new Folder();
+                folder.Name = reader.GetString(reader.GetOrdinal("f_name"));
+                folder.Id =   reader.GetInt32(reader.GetOrdinal("f_id"));
+                Priority priority = new Priority();
+                priority.Name = reader.GetString(reader.GetOrdinal("p_name"));
+                priority.Id =   reader.GetInt32(reader.GetOrdinal("p_id"));
+                task.Folder = folder;
+                task.Priority = priority;
+                task.User = user;
+                tasks.Add(task);
             }
             return tasks;
         }
         
         
-        public static List<Task> GetAllTask()
+        public List<Task> GetAllTask()
         {
             List<Task> tasks = new List<Task>();
-            NpgsqlCommand command = new NpgsqlCommand($"select * from task", _connection);
+            NpgsqlCommand command = new NpgsqlCommand($"select * from task join folder f on task.folderId = f.id join priority p on p.id = task.priorityId ", _connection);
             NpgsqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -45,14 +57,20 @@ namespace YourGoal.Services
                 task.Id = Convert.ToInt32(reader["id"].ToString());
                 task.Name = reader["name"].ToString();
                 task.DateDelete = Convert.ToDateTime(reader["datedelete"].ToString());
-                task.Folder = GetFolderForGoal(Convert.ToInt32(reader["folderId"].ToString()));
-                task.Priority = GetPriorityToTask(Convert.ToInt32(reader["priorityid"].ToString()));
+                Folder folder = new Folder();
+                folder.Name = reader["f.name"].ToString();
+                folder.Id = Convert.ToInt32(reader["f.id"].ToString());
+                Priority priority = new Priority();
+                priority.Name = reader["p.name"].ToString();
+                priority.Id = Convert.ToInt32(reader["p.id"].ToString());
+                task.Folder = folder;
+                task.Priority = priority;
                 task.User = GetUserToTask(Convert.ToInt32(reader["userid"].ToString()));
             }
             return tasks;
         }
 
-        public static User GetUserToTask(int id)
+        public User GetUserToTask(int id)
         {
             NpgsqlCommand command = new NpgsqlCommand($"select * from "+ " user_ " +" where  " +
                                                       $"id = {id}", _connection);
@@ -68,7 +86,7 @@ namespace YourGoal.Services
             return taskUser;
         }
         
-        public static Priority GetPriorityToTask(int id)
+        public Priority GetPriorityToTask(int id)
         {
             Priority priority = new Priority();
             NpgsqlCommand command = new NpgsqlCommand($"select * from priority where id= {id}", _connection);
@@ -83,7 +101,7 @@ namespace YourGoal.Services
             return priority;
         }
         
-        public static Folder GetFolderForGoal(int Id)
+        public  Folder GetFolderForTask(int Id)
         {
             Folder folderForGoal = new Folder();
             NpgsqlCommand command = new NpgsqlCommand($"select * from folder where id={Id}", _connection);
