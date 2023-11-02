@@ -90,7 +90,9 @@
                             </StackPanel>
                             <StackPanel Orientation="Vertical">
                                 <!-- Кнопка редактирования -->
-                                <Button></Button>
+                                <Button>
+                                    <Image></Image>
+                                </Button>
                                 <!-- Чекбокс о выполнении -->
                                 <CheckBox></CheckBox>
                             </StackPanel>

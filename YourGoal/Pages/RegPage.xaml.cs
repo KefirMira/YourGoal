@@ -12,7 +12,7 @@ namespace YourGoal.Pages
 
         private void RegButton_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new System.NotImplementedException();
+            MessageBox.Show("Вы уже находитесь на этой странице!");
         }
 
         private void AcceptRegButton_OnClick(object sender, RoutedEventArgs e)

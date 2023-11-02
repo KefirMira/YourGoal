@@ -5,9 +5,8 @@ namespace YourGoal.Models
     public class Tracker
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public DateTime DateDelete { get; set; }
-        public User User { get; set; }
-        public Folder Folder { get; set; }
+        public int HabitId { get; set; }
+        public DateTime DateOfCompletion { get; set; }
+        public bool Accomplishment { get; set; }
     }
 }

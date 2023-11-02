@@ -4,14 +4,15 @@ using YourGoal.Models;
 
 namespace YourGoal.Services
 {
-    public class AuthService
+    public class AllUserService
     {
         private string connectionString = "Host = localhost; Database = yourgoaldb; User ID = postgres; Password= 2347";
         private NpgsqlConnection _connection;
-        public AuthService()
+        public AllUserService()
         {
             _connection = new NpgsqlConnection(connectionString);
         }
+        //авторизация
         public User AuthUser(string login, string password)
         {
             _connection.Open();
@@ -22,13 +23,14 @@ namespace YourGoal.Services
             while (reader.Read())
             {
                 authUser.Name = reader["name"].ToString();
-                authUser.Surname = reader["surname"].ToString();
-                authUser.BirthDay = Convert.ToDateTime(reader["birthday"].ToString());
+                // authUser.Surname = reader["surname"].ToString();
+                // authUser.BirthDay = Convert.ToDateTime(reader["birthday"].ToString());
                 authUser.Login = reader["login"].ToString();
                 authUser.Password = reader["password"].ToString();
                 authUser.Id = Convert.ToInt32(reader["id"]);
             }
             return authUser;
         }
+        
     }
 }

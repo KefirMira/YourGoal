@@ -27,12 +27,30 @@ namespace YourGoal.Services
                 goal.Name = reader["name"].ToString();
                 goal.DateEnd = Convert.ToDateTime(reader["surname"].ToString());
                 goal.DateStart = Convert.ToDateTime(reader["surname"].ToString());
-                goal.User = GetUserForGoal(Convert.ToInt32(reader["userId"].ToString()));
                 goal.Folder = GetFolderForGoal(Convert.ToInt32(reader["folderId"].ToString()));
+                goal.Tasks = GetAllTaskToGoal(Convert.ToInt32(reader["id"].ToString()));
             }
             return goals;
         }
 
+        public static List<Task> GetAllTaskToGoal(int id)
+        {
+            List<Task> allTasks = new List<Task>();
+            NpgsqlCommand command = new NpgsqlCommand($"select * from taskforgoal where goalid= {id}", _connection);
+            NpgsqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Task task = new Task();
+                task.Id = Convert.ToInt32(reader["id"]);
+                task.Name = reader["name"].ToString();
+                allTasks.Add(task);
+            }
+            
+            return allTasks;
+        }
+        
+        
         public static User GetUserForGoal(int id)
         {
             User userForGoal = new User();

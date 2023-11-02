@@ -53,11 +53,11 @@
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
         </ApplicationDefinition>
-        <Compile Include="Models\Category.cs" />
+        <Compile Include="Models\Priority.cs" />
         <Compile Include="Models\Folder.cs" />
         <Compile Include="Models\Goal.cs" />
         <Compile Include="Models\Habit.cs" />
-        <Compile Include="Models\OneTimeTask.cs" />
+        <Compile Include="Models\Task.cs" />
         <Compile Include="Models\TaskOnGoal.cs" />
         <Compile Include="Models\Tracker.cs" />
         <Compile Include="Pages\MainPage.xaml.cs">
@@ -66,9 +66,13 @@
         <Compile Include="Pages\RegPage.xaml.cs">
           <DependentUpon>RegPage.xaml</DependentUpon>
         </Compile>
+        <Compile Include="Services\AllFolderService.cs" />
         <Compile Include="Services\AllGoalServices.cs" />
+        <Compile Include="Services\AllHabitAndTrackerService.cs" />
+        <Compile Include="Services\AllPriorityService.cs" />
         <Compile Include="Services\AllTaskServices.cs" />
-        <Compile Include="Services\AuthService.cs" />
+        <Compile Include="Services\AllUserService.cs" />
+        <Compile Include="Services\TaskForGoalService.cs" />
         <Page Include="MainWindow.xaml">
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>

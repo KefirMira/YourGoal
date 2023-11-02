@@ -21,7 +21,7 @@ namespace YourGoal.Pages
         {
             string Login = LoginTextBox.Text;
             string Password = PasswordTextBox.Text;
-            AuthService au = new AuthService();
+            AllUserService au = new AllUserService();
             User user = au.AuthUser(Login, Password);
             if (user == null)
             {
@@ -35,7 +35,7 @@ namespace YourGoal.Pages
 
         private void EnterButton_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new System.NotImplementedException();
+            MessageBox.Show("Вы уже находитесь на этой странице!");
 
         }
 
