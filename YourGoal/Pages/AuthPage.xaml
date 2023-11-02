@@ -46,11 +46,11 @@
                     VerticalAlignment="Top"
                     Margin="15" Orientation="Horizontal">
 
-            <Button x:Name="EnterButton" Margin="5"
+            <Button x:Name="EnterButton" Margin="5"  Style="{StaticResource AccentButton}" 
                     MinWidth="100" MinHeight="35"
-                    FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium"
-                    Click="EnterButton_OnClick" Content="Вход" Foreground="#F6F9FF"
-                    Background="#58A4B0" ui:ControlHelper.CornerRadius="20" />
+                    FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium" FontSize="14"
+                    Click="EnterButton_OnClick" Content="Вход"
+                    ui:ControlHelper.CornerRadius="20" />
 
             <Button x:Name="RegButton" Content="Создать аккаунт"
                     MinWidth="160" MinHeight="35" Margin="5"
@@ -93,12 +93,12 @@
             <!-- Кнопки -->
             <StackPanel Orientation="Horizontal" Margin="20">
 
-                <Button x:Name="LoginButton" Content="Войти"
-                        Click="LoginButton_OnClick" HorizontalAlignment="Left"
+                <Button x:Name="LoginButton" Style="{StaticResource AccentButton}" 
+                        Content="Войти" HorizontalAlignment="Left" 
                         FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium"
-                        Padding="40,10,40,10" FontSize="16"
-                        Foreground="#F6F9FF" Background="#58A4B0"
-                        ui:ControlHelper.CornerRadius="20" />
+                        Click="LoginButton_OnClick" MinWidth="150" MinHeight="30" FontSize="16" />
+                
+
 
                 <Button x:Name="ForgotYourPasswordButton" Margin="10" Content="Забыли пароль?"
                         Click="ForgotYourPasswordButton_OnClick" FontSize="14"

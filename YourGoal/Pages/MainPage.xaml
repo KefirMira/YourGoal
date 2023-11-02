@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:YourGoal.Pages"
+      xmlns:ui="http://schemas.modernwpf.com/2019"
       mc:Ignorable="d"
       Title="MainPage" Width="800" Height="600" Background="#F6F9FF">
     
@@ -78,21 +79,36 @@
                         <StackPanel Orientation="Horizontal">
                             <StackPanel Orientation="Vertical">
                                 <StackPanel Orientation="Horizontal">
+                                    
                                     <!-- Папка -->
-                                    <TextBlock Text="{Binding }"></TextBlock> 
+                                    <Image Source="../src/iconFolder.png" 
+                                           MaxHeight="12" MaxWidth="12"/>
+                                    <TextBlock Text="{Binding }" Background="#58A4B0"
+                                                FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Light"
+                                                FontSize="12" Foreground="#F6F9FF"/> 
+                                    
                                     <!-- Приоритет -->
-                                    <TextBlock Text="{Binding }"></TextBlock> 
+                                    <TextBlock Text="{Binding }" 
+                                               FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Light"
+                                               FontSize="12"/> 
                                     <!-- Время -->
-                                    <TextBlock Text="{Binding }"></TextBlock>
+                                    <TextBlock Text="{Binding }" 
+                                               FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Light"
+                                               FontSize="12"/>
                                 </StackPanel>
+                                
                                 <!-- Наименование задачи -->
-                                <TextBlock></TextBlock>
+                                <TextBlock Text="{Binding }" 
+                                           FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Medium"
+                                           FontSize="18"/>
                             </StackPanel>
                             <StackPanel Orientation="Vertical">
                                 <!-- Кнопка редактирования -->
-                                <Button></Button>
+                                <Button x:Name="EditTaskButton" MaxHeight="20" MaxWidth="20">
+                                    <Image Source="../src/PencilLine.png" />
+                                </Button>
                                 <!-- Чекбокс о выполнении -->
-                                <CheckBox></CheckBox>
+                                <CheckBox Foreground="#58A4B0" MaxHeight="20" MaxWidth="20"/>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>
@@ -118,23 +134,44 @@
                 
             </StackPanel>
             <StackPanel 
-                Orientation="Vertical">
-                <StackPanel Orientation="Horizontal">
-                    <Button>туда</Button>
+                Orientation="Vertical" Background="#F0F3FA">
+                
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    
+                    <Button x:Name="LeftButton" MaxHeight="20" MaxWidth="20" 
+                            BorderBrush="#58A4B0" BorderThickness="2" 
+                            ui:ControlHelper.CornerRadius="3">
+                        <Image Source="../src/iconArrow.png"/>
+                    </Button>
+                    
                     <!-- Наименование цели -->
-                    <TextBlock Text="{Binding }"></TextBlock>
-                    <Button>сюда</Button>
+                    <TextBlock Text="{Binding }" 
+                               FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Medium"
+                               FontSize="18"/>
+                    
+                    <Button x:Name="RightButton" MaxHeight="20" MaxWidth="20" 
+                            BorderBrush="#58A4B0" BorderThickness="2"
+                            ui:ControlHelper.CornerRadius="3">
+                        <Image Source="../src/iconArrow.png"/>
+                    </Button>
                 </StackPanel>
                 <!-- Описание цели -->
                 <StackPanel Orientation="Horizontal">
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock>Прогресс</TextBlock>
+                    <StackPanel Orientation="Vertical" >
+                        <TextBlock Margin="10" FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Normal"
+                                   FontSize="12" Text="Прогресс" Foreground="#373F51"/>
                         <!-- Прогресс -->
-                        <TextBlock Text="{ Binding}"></TextBlock>
+                        <TextBlock Margin="10" Text="{ Binding}" 
+                                   FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Light"
+                                   FontSize="11" Foreground="#373F51"/>
                         <!-- Дата выполнения или создания -->
-                        <TextBlock Text="{Binding}"></TextBlock>
+                        <TextBlock Text="{Binding}" 
+                                   FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Normal"
+                                   FontSize="11" Foreground="#373F51"/>
                         <!-- Осталось дней -->
-                        <TextBlock Text="{ Binding}"></TextBlock>
+                        <TextBlock Text="{ Binding}" 
+                                   FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Medium"
+                                   FontSize="12" Foreground="#373F51"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- Кнопка добавления -->
@@ -162,21 +199,29 @@
                         BorderBrush="Transparent" Content="К списку ->"/>
                 
             </StackPanel>
-            <ListView>
+            
+            <ListView >
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" Background="#F0F3FA">
                             <StackPanel Orientation="Vertical">
-                                <!-- Счётсчик -->
-                                <TextBlock Text="{Binding}"></TextBlock> 
+                                <!-- Счётчик -->
+                                <TextBlock Text="{Binding}" 
+                                           FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Normal"
+                                           FontSize="14" Foreground="#373F51"/>
                                 <!-- Наименование привычки-->
-                                <TextBlock Text="{Binding}"></TextBlock>
+                                <TextBlock Text="{Binding}" 
+                                           FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Normal"
+                                           FontSize="18" Foreground="#373F51"/>
                             </StackPanel>
+                            
                              <StackPanel Orientation="Vertical">
                                  <!-- Кнопка редактиварония -->
-                                 <Button></Button>
+                                 <Button x:Name="EditHabbitButton" MaxHeight="20" MaxWidth="20">
+                                     <Image Source="../src/PencilLine.png" />
+                                 </Button>
                                  <!-- Чекбокс на выполнение -->
-                                 <CheckBox></CheckBox>
+                                 <CheckBox Foreground="#58A4B0" MaxHeight="20" MaxWidth="20"/>
                              </StackPanel>
                             
                         </StackPanel>

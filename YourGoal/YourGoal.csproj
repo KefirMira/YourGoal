@@ -84,6 +84,7 @@
         <Page Include="Pages\AuthPage.xaml" />
         <Page Include="Pages\MainPage.xaml" />
         <Page Include="Pages\RegPage.xaml" />
+        <Page Include="src\styles\ButtonStyles.xaml" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Models\User.cs" />
@@ -155,6 +156,15 @@
     </ItemGroup>
     <ItemGroup>
       <Resource Include="src\office-woman-multitasking-in-the-office.png" />
+    </ItemGroup>
+    <ItemGroup>
+      <Resource Include="src\iconFolder.png" />
+    </ItemGroup>
+    <ItemGroup>
+      <Resource Include="src\PencilLine.png" />
+    </ItemGroup>
+    <ItemGroup>
+      <Resource Include="src\iconArrow.png" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
