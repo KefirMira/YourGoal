@@ -51,6 +51,21 @@
             
             <TextBlock Margin="10" FontFamily="../src/fonts/#Gotham Pro Medium"
                        FontSize="18" Text="Календарь" Foreground="#373F51" />
+            <ListView x:Name="CalendarListView" >
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Width="558" ></StackPanel>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding DateName}"></TextBlock>
+                            <TextBlock Text="{Binding DateNum}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
             
         </StackPanel>
         
@@ -133,7 +148,7 @@
                         BorderBrush="Transparent" Content="К списку ->"/>
                 
             </StackPanel>
-            <StackPanel 
+            <StackPanel x:Name="GoalPanel"
                 Orientation="Vertical" Background="#F0F3FA">
                 
                 <StackPanel Orientation="Horizontal" Margin="10">
@@ -145,7 +160,7 @@
                     </Button>
                     
                     <!-- Наименование цели -->
-                    <TextBlock Text="{Binding }" 
+                    <TextBlock Text="{Binding Name}" 
                                FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Medium"
                                FontSize="18"/>
                     
@@ -200,7 +215,7 @@
                 
             </StackPanel>
             
-            <ListView >
+            <ListView x:Name="HabitsListView">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Background="#F0F3FA">

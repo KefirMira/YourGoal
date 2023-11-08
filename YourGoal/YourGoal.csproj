@@ -57,6 +57,7 @@
         <Compile Include="Models\Folder.cs" />
         <Compile Include="Models\Goal.cs" />
         <Compile Include="Models\Habit.cs" />
+        <Compile Include="Models\ProgrammModels\CalendarMod.cs" />
         <Compile Include="Models\Task.cs" />
         <Compile Include="Models\TaskOnGoal.cs" />
         <Compile Include="Models\Tracker.cs" />
@@ -65,6 +66,9 @@
         </Compile>
         <Compile Include="Pages\RegPage.xaml.cs">
           <DependentUpon>RegPage.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Pages\TasksPage.xaml.cs">
+          <DependentUpon>TasksPage.xaml</DependentUpon>
         </Compile>
         <Compile Include="Services\AllFolderService.cs" />
         <Compile Include="Services\AllGoalServices.cs" />
@@ -88,6 +92,7 @@
         <Page Include="Pages\AuthPage.xaml" />
         <Page Include="Pages\MainPage.xaml" />
         <Page Include="Pages\RegPage.xaml" />
+        <Page Include="Pages\TasksPage.xaml" />
         <Page Include="src\styles\ButtonStyles.xaml" />
     </ItemGroup>
     <ItemGroup>

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "NR7YoVOiuU8xROOqwv1WQ2Dkl35/Kg/v9ww3u16VQ745CYh9JZaiIg2+iYYVGYft/H6RDy1wFY66ZbM9A1pH+w==",
+  "dgSpecHash": "1HUsDJ3f6KZCd5lC4Of+wkf1EBHpaa3gQYCli/FoKFZqm+eeBNT5pu320u+CDQA0h+zT/NJsEghrcNcJc/u4ew==",
   "success": true,
   "projectFilePath": "C:\\Users\\lenovo\\RiderProjects\\YourGoal\\YourGoal\\YourGoal.csproj",
   "expectedPackageFiles": [
@@ -10,7 +10,7 @@
     "C:\\Users\\lenovo\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0-rc.2.23479.6\\microsoft.extensions.logging.abstractions.8.0.0-rc.2.23479.6.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\microsoft.windows.sdk.contracts\\10.0.18362.2005\\microsoft.windows.sdk.contracts.10.0.18362.2005.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\modernwpfui\\0.9.7-preview.2\\modernwpfui.0.9.7-preview.2.nupkg.sha512",
-    "C:\\Users\\lenovo\\.nuget\\packages\\npgsql\\8.0.0-rc.2\\npgsql.8.0.0-rc.2.nupkg.sha512",
+    "C:\\Users\\lenovo\\.nuget\\packages\\npgsql\\7.0.6\\npgsql.7.0.6.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\system.collections.immutable\\8.0.0-rc.2.23479.6\\system.collections.immutable.8.0.0-rc.2.23479.6.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\system.diagnostics.diagnosticsource\\8.0.0-rc.2.23479.6\\system.diagnostics.diagnosticsource.8.0.0-rc.2.23479.6.nupkg.sha512",

@@ -15,8 +15,9 @@ namespace YourGoal.Services
         }
         // Выгружаем все цели
         #region GetGoal
-        public static List<Goal> LoadAllGoal()
+        public  List<Goal> LoadAllGoal()
         {
+            _connection.Open();
             List<Goal> goals = new List<Goal>();
             NpgsqlCommand command = new NpgsqlCommand($"select * from goal", _connection);
             NpgsqlDataReader reader = command.ExecuteReader();
@@ -28,7 +29,7 @@ namespace YourGoal.Services
                 goal.DateEnd = Convert.ToDateTime(reader["surname"].ToString());
                 goal.DateStart = Convert.ToDateTime(reader["surname"].ToString());
                 goal.Folder = GetFolderForGoal(Convert.ToInt32(reader["folderId"].ToString()));
-                goal.Tasks = GetAllTaskToGoal(Convert.ToInt32(reader["id"].ToString()));
+                //goal.Tasks = GetAllTaskToGoal(Convert.ToInt32(reader["id"].ToString()));
             }
             return goals;
         }

@@ -1,5 +1,6 @@
 using System.Windows;
 using System.Windows.Controls;
+using YourGoal.Services;
 
 namespace YourGoal.Pages
 {
@@ -17,7 +18,11 @@ namespace YourGoal.Pages
 
         private void AcceptRegButton_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new System.NotImplementedException();
+            AllUserService userServices = new AllUserService();
+            if (userServices.CreateNewUser(NameTextBox.Text, LoginTextBox.Text, PasswordTextBox.Text))
+                NavigationService.Navigate(new AuthPage());
+            else
+                MessageBox.Show("Ошибка");
         }
 
         private void EnterButton_OnClick(object sender, RoutedEventArgs e)

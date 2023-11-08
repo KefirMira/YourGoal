@@ -31,19 +31,37 @@ namespace YourGoal.Services
             }
             return authUser;
         }
-
+        //регистрация
         public  bool CreateNewUser(string Name, string Login, string Password)
         {
             _connection.Open();
-            NpgsqlCommand command = new NpgsqlCommand($"insert into user(name,login,password) values ('{Name}','{Login}','{Password}');", _connection);
-            try
+            NpgsqlCommand searchUser = new NpgsqlCommand($"select * from "+ " user_ " +" where  " +
+                                                      $" login='{Login}'", _connection);
+            NpgsqlDataReader reader = searchUser.ExecuteReader();
+            User authUser = new User();
+            while (reader.Read())
             {
-                command.ExecuteNonQuery();
-                return true;
+                authUser.Name = reader["name"].ToString();
+                // authUser.Surname = reader["surname"].ToString();
+                // authUser.BirthDay = Convert.ToDateTime(reader["birthday"].ToString());
+                authUser.Login = reader["login"].ToString();
+                authUser.Password = reader["password"].ToString();
+                authUser.Id = Convert.ToInt32(reader["id"]);
             }
-            catch
-            {
+            if (authUser != null)
                 return false;
+            else
+            {
+                NpgsqlCommand command = new NpgsqlCommand($"insert into user(name,login,password) values ('{Name}','{Login}','{Password}');", _connection);
+                try
+                {
+                    command.ExecuteNonQuery();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }    
             }
         }
         
