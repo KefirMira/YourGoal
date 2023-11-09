@@ -1,0 +1,74 @@
+create table user_
+(
+    id         serial
+        primary key,
+    name       varchar(80),
+    login      varchar(75),
+    password   varchar(75)
+);
+
+create table priority
+(
+    id   serial
+        primary key,
+    name varchar(50)
+);
+
+create table folder
+(
+    id   serial
+        primary key,
+    name varchar(50)
+);
+
+create table habit
+(
+    id   serial
+        primary key,
+    name varchar(50),
+    dateStart date,
+    dateEnd date,
+    userId INTEGER REFERENCES user_ (id),
+    folderId INTEGER REFERENCES folder (id)
+);
+
+
+
+create table tracker (
+    id   serial
+        primary key,
+    habitId INTEGER REFERENCES habit (id),
+    dateOfCompletion date,
+    accomplishment boolean
+);
+
+
+create table task(
+     id   serial
+         primary key,
+     "name" varchar(200),
+     dateDelete date,
+     priorityId INTEGER REFERENCES priority (id),
+     folderId INTEGER REFERENCES folder (id),
+     userId INTEGER REFERENCES user_ (id)
+);
+
+create table goal
+(
+    id   serial
+        primary key,
+    name varchar(50),
+    dateStart date,
+    dateEnd date,
+    folderId INTEGER REFERENCES folder (id)
+);
+
+create table taskForGoal
+(
+    id   serial
+        primary key,
+    goalId integer references goal(id),
+    taskId INTEGER REFERENCES task(id)
+);
+
+
