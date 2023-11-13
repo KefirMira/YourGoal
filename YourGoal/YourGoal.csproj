@@ -61,6 +61,12 @@
         <Compile Include="Models\Task.cs" />
         <Compile Include="Models\TaskOnGoal.cs" />
         <Compile Include="Models\Tracker.cs" />
+        <Compile Include="Pages\GoalsPage.xaml.cs">
+          <DependentUpon>GoalsPage.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Pages\HabbitsPage.xaml.cs">
+          <DependentUpon>HabbitsPage.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Pages\MainPage.xaml.cs">
           <DependentUpon>MainPage.xaml</DependentUpon>
         </Compile>
@@ -77,6 +83,9 @@
         <Compile Include="Services\AllTaskServices.cs" />
         <Compile Include="Services\AllUserService.cs" />
         <Compile Include="Services\TaskForGoalService.cs" />
+        <Compile Include="TestWindow.xaml.cs">
+          <DependentUpon>TestWindow.xaml</DependentUpon>
+        </Compile>
         <Page Include="MainWindow.xaml">
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
@@ -90,10 +99,13 @@
             <SubType>Code</SubType>
         </Compile>
         <Page Include="Pages\AuthPage.xaml" />
+        <Page Include="Pages\GoalsPage.xaml" />
+        <Page Include="Pages\HabbitsPage.xaml" />
         <Page Include="Pages\MainPage.xaml" />
         <Page Include="Pages\RegPage.xaml" />
         <Page Include="Pages\TasksPage.xaml" />
         <Page Include="src\styles\ButtonStyles.xaml" />
+        <Page Include="TestWindow.xaml" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Models\User.cs" />

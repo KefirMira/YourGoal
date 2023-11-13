@@ -1,4 +1,4 @@
-<Page x:Class="YourGoal.Pages.TasksPage"
+<Page x:Class="YourGoal.Pages.HabbitsPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:YourGoal.Pages"
       xmlns:ui="http://schemas.modernwpf.com/2019"
       mc:Ignorable="d"
-      Title="TasksPage" Height="450" Width="900">
+      Title="HabbitsPage" Height="450" Width="900">
     
     <Grid ShowGridLines="True">
         
@@ -33,18 +33,18 @@
         <!-- Кнопка на главную -->
         <StackPanel Grid.Column="1" Grid.Row="0">
             <Button Margin="10" Name="GoMainBtn" Content="На главную"
-                   MinWidth="140" BorderThickness="2"
-                   MinHeight="35" BorderBrush="#58A4B0" Foreground="#58A4B0"
-                   ui:ControlHelper.CornerRadius="20"
-                   VerticalAlignment="Center" HorizontalAlignment="Right"
-                   FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium" />
+                    MinWidth="140" BorderThickness="2"
+                    MinHeight="35" BorderBrush="#58A4B0" Foreground="#58A4B0"
+                    ui:ControlHelper.CornerRadius="20"
+                    VerticalAlignment="Center" HorizontalAlignment="Right"
+                    FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium" />
         </StackPanel>
         
         <!-- Заголовок и кнопка -->
         <StackPanel Grid.Column="0" Grid.Row="1"  
                     HorizontalAlignment="Left" Orientation="Horizontal">
             
-            <TextBlock Text="Ваши задачи" Margin="10" FontSize="22" Width="150" Foreground="#373F51"
+            <TextBlock Text="Ваши привычки" Margin="10" FontSize="22" Width="190" Foreground="#373F51"
                        FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium" />
             
             <Button Name="AddBtn" Margin="5" VerticalAlignment="Top"
@@ -56,44 +56,32 @@
         
         <!-- Лист -->
         <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
-        <ListView x:Name="AllTaskListView">
+            <ListView x:Name="HabitsListView">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" Background="#F0F3FA">
                             <StackPanel Orientation="Vertical">
-                                <StackPanel Orientation="Horizontal" Background="#F1F4FA">
-                                    
-                                    <!-- Папка -->
-                                    <Image Source="../src/iconFolder.png" 
-                                           MaxHeight="12" MaxWidth="12"/>
-                                    <TextBlock Text="{Binding Folder.Name}" Background="#58A4B0"
-                                                FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Light"
-                                                FontSize="12" Foreground="#F6F9FF"/> 
-                                    
-                                    <!-- Приоритет -->
-                                    <TextBlock Text="{Binding Priority.Name}" 
-                                               FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Light"
-                                               FontSize="12"/> 
-                                    <!-- Время -->
-                                    <TextBlock Text="{Binding DateDelete}" 
-                                               FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Light"
-                                               FontSize="12"/>
-                                </StackPanel>
-                                
-                                <!-- Наименование задачи -->
-                                <TextBlock Text="{Binding Name}" 
-                                           FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Medium"
-                                           FontSize="18"/>
+                                <!-- Счётчик -->
+                                <TextBlock Text="{Binding}" 
+                                           FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Normal"
+                                           FontSize="14" Foreground="#373F51"/>
+                                <!-- Наименование привычки-->
+                                <TextBlock Text="{Binding}" 
+                                           FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Normal"
+                                           FontSize="18" Foreground="#373F51"/>
                             </StackPanel>
+                            
                             <StackPanel Orientation="Vertical">
-                                <!-- Кнопка редактирования -->
-                                <Button x:Name="EditTaskButton" MaxHeight="20" MaxWidth="20">
+                                <!-- Кнопка редактиварония -->
+                                <Button x:Name="EditHabbitButton" MaxHeight="20" MaxWidth="20">
                                     <Image Source="../src/PencilLine.png" />
                                 </Button>
-                                <!-- Чекбокс о выполнении -->
+                                <!-- Чекбокс на выполнение -->
                                 <CheckBox Foreground="#58A4B0" MaxHeight="20" MaxWidth="20"/>
                             </StackPanel>
+                            
                         </StackPanel>
+                        
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
