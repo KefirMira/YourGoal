@@ -10,6 +10,7 @@ namespace YourGoal.Models
         public Folder Folder { get; set; }
         public User User { get; set; }
         public Priority Priority { get; set; }
+        public bool Accomplishment { get; set; }
 
     }
 }

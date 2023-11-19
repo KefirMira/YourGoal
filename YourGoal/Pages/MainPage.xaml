@@ -5,10 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:YourGoal.Pages"
       xmlns:ui="http://schemas.modernwpf.com/2019"
+      xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       mc:Ignorable="d"
       Title="MainPage" Width="800" Height="600" Background="#F6F9FF" Loaded="MainPage_OnLoaded">
     
     <Grid ShowGridLines="True">
+        
+        
         
         <!-- Разметка -->
         <Grid.ColumnDefinitions>
@@ -23,6 +26,13 @@
             <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
         
+        
+        
+        <!-- <Button  x:Name="MenuButtonABOVB"  Click="MenuButtonABOVB_OnClick">Нажать -->
+        <!--     ~1~ <Image Source="../src/Hamburger_icon.svg.png" ></Image> @1@ -->
+        <!-- </Button> -->
+        
+        
         <!-- Верхняя панель -->
         <StackPanel Grid.Row="0" 
                     Orientation="Horizontal"  
@@ -32,7 +42,13 @@
             <Button x:Name="NavigateButton"
                     MinHeight="20"
                     MinWidth="100"
-                    HorizontalAlignment="Left"></Button>
+                    Click="NavigateButton_OnClick"
+                    FontFamily="../src/fonts/#Gotham Pro" FontWeight="Light"
+                    Foreground="#777D8B" Background="Transparent"  Visibility="Visible"
+                    BorderBrush="Transparent"
+                    HorizontalAlignment="Left">
+                <Image Source="../src/Hamburger_icon.svg.png"></Image>
+            </Button>
             
         </StackPanel>
         
@@ -54,12 +70,12 @@
             <ListView x:Name="CalendarListView" >
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Width="558" ></StackPanel>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" ></StackPanel>
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Vertical">
+                        <StackPanel Width="30" Orientation="Vertical">
                             <TextBlock Text="{Binding DateName}"></TextBlock>
                             <TextBlock Text="{Binding DateNum}"></TextBlock>
                         </StackPanel>
@@ -88,10 +104,10 @@
                 
             </StackPanel>
             
-            <ListView x:Name="AllTaskListView">
+            <ListView x:Name="AllTaskListView"  Width="265">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" Width="250">
                             <StackPanel Orientation="Vertical">
                                 <StackPanel Orientation="Horizontal">
                                     
@@ -109,11 +125,11 @@
                                    
                                 </StackPanel>
                                 <!-- Время -->
-                                <TextBlock Text="{Binding DateDelete}" 
+                                <TextBlock Margin="5" Text="{Binding DateDelete, StringFormat=dd.mm.yyyy}" 
                                            FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Light"
                                            FontSize="12"/>
                                 <!-- Наименование задачи -->
-                                <TextBlock Text="{Binding Name}" 
+                                <TextBlock Margin="5" Text="{Binding Name}" 
                                            FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Medium"
                                            FontSize="18"/>
                             </StackPanel>
@@ -123,7 +139,7 @@
                                     <Image Source="../src/PencilLine.png" Width="20" Height="20" />
                                 </Button>
                                 <!-- Чекбокс о выполнении -->
-                                <CheckBox Margin="5" Foreground="#58A4B0" Height="20" Width="20"/>
+                                <CheckBox Margin="5" Foreground="#58A4B0" IsChecked="{Binding Accomplishment}" x:Name="TasksCheckBox" Checked="TasksCheckBox_OnChecked" Height="20" Width="20"/>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>
@@ -176,15 +192,15 @@
                         <TextBlock Margin="10" FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Normal"
                                    FontSize="12" Text="Прогресс" Foreground="#373F51"/>
                         <!-- Прогресс -->
-                        <TextBlock Margin="10" Text="{ Binding}" 
+                        <TextBlock Margin="10" Text="{ Binding RelationshipTasks}" 
                                    FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Light"
                                    FontSize="11" Foreground="#373F51"/>
                         <!-- Дата выполнения или создания -->
-                        <TextBlock Text="{Binding}" 
+                        <TextBlock Text="{Binding DateEnd, StringFormat=dd.mm.yyyy}" 
                                    FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Normal"
                                    FontSize="11" Foreground="#373F51"/>
                         <!-- Осталось дней -->
-                        <TextBlock Text="{ Binding}" 
+                        <TextBlock Text="{ Binding RemainingDays}" 
                                    FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Medium"
                                    FontSize="12" Foreground="#373F51"/>
                     </StackPanel>
@@ -192,6 +208,16 @@
                         <!-- Кнопка добавления -->
                         <Button>+</Button>
                         <!-- График -->
+                        <wpf:Gauge x:Name="GaugeForGoal" Width="100" Height="100" From="0" To="50">
+                            <wpf:Gauge.GaugeActiveFill>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#58A4B0" Offset="0.0"></GradientStop>
+                                    <GradientStop Color="#58A4B0" Offset="0.5"></GradientStop>
+                                    <GradientStop Color="#58A4B0"  Offset="1.0"></GradientStop>
+                                </LinearGradientBrush>
+                            </wpf:Gauge.GaugeActiveFill>
+                            
+                        </wpf:Gauge>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
@@ -221,11 +247,11 @@
                         <StackPanel Orientation="Horizontal" Background="#F0F3FA">
                             <StackPanel Orientation="Vertical">
                                 <!-- Счётчик -->
-                                <TextBlock Text="{Binding}" 
+                                <TextBlock Text="{Binding Counter}" 
                                            FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Normal"
                                            FontSize="14" Foreground="#373F51"/>
                                 <!-- Наименование привычки-->
-                                <TextBlock Text="{Binding}" 
+                                <TextBlock Text="{Binding Name}" 
                                            FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Normal"
                                            FontSize="18" Foreground="#373F51"/>
                             </StackPanel>
@@ -236,7 +262,7 @@
                                      <Image Source="../src/PencilLine.png" />
                                  </Button>
                                  <!-- Чекбокс на выполнение -->
-                                 <CheckBox Foreground="#58A4B0" MaxHeight="20" MaxWidth="20"/>
+                                 <CheckBox Foreground="#58A4B0" MaxHeight="20" MaxWidth="20" x:Name="HabitCheckBox" Checked="HabitCheckBox_OnChecked"/>
                              </StackPanel>
                             
                         </StackPanel>
@@ -245,5 +271,37 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
+        
+        <!-- Бургер-меню -->
+        <StackPanel Height="600" Name="NavigateStackPanel" Visibility="Collapsed"  Background="#F6F9FF" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Width="200"  Grid.Column="0" Grid.RowSpan="3" >
+            <Button Margin="5" Click="HoldButton_OnClick"
+                    Width="150"
+                    Height="30"
+                    x:Name="HoldButton" FontFamily="../src/fonts/#Gotham Pro" FontWeight="Light"
+                    Foreground="#777D8B" Background="Transparent" 
+                    BorderBrush="Transparent">Скрыть меню</Button>
+            <Button Margin="5" Click="MainPageTransitionButton_OnClick"
+                    Width="150" Height="30" 
+                    x:Name="MainPageTransitionButton"
+                    FontFamily="../src/fonts/#Gotham Pro" FontWeight="Light"
+                    Foreground="#777D8B" Background="Transparent" 
+                    BorderBrush="Transparent">Главная страница</Button>
+            <Button Margin="5" Width="150" Height="30" Click="TasksPageTransitionButton_OnClick"
+                    x:Name="TasksPageTransitionButton"
+                    FontFamily="../src/fonts/#Gotham Pro" FontWeight="Light"
+                    Foreground="#777D8B" Background="Transparent" 
+                    BorderBrush="Transparent">Задачи</Button>
+            <Button Margin="5" Width="150" Height="30" x:Name="GoalPageTransitionButton" Click="GoalPageTransitionButton_OnClick"
+                    FontFamily="../src/fonts/#Gotham Pro" FontWeight="Light"
+                    Foreground="#777D8B" Background="Transparent" 
+                    BorderBrush="Transparent">Цели</Button>
+            <Button Margin="5" Width="150" Height="30" x:Name="HabitPageTransitionButton" Click="HabitPageTransitionButton_OnClick"
+                    FontFamily="../src/fonts/#Gotham Pro" FontWeight="Light"
+                    Foreground="#777D8B" Background="Transparent" 
+                    BorderBrush="Transparent">Привычки</Button>
+        </StackPanel>
+        
+        
+        
     </Grid>
 </Page>

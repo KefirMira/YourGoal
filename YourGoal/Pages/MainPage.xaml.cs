@@ -22,6 +22,41 @@ namespace YourGoal.Pages
             _user = user;
         }
 
+        public string RelationshipTasksCounter(List<TaskOnGoal> taskOnGoals, Goal thisGoal )
+        {
+            int allTasks = 0;
+            int readyTasks = 0;
+            foreach (var item in taskOnGoals)
+            {
+                if (item.Goal.Id == thisGoal.Id)
+                {
+                    allTasks++;
+                    if (item.Task.Accomplishment == true)
+                        readyTasks++;
+                }
+                
+            }
+            return readyTasks + "/" + allTasks;
+        }
+        
+        public void WorkWithDiagramm(List<TaskOnGoal> taskOnGoals, Goal thisGoal )
+        {
+            int allTasks = 0;
+            int readyTasks = 0;
+            foreach (var item in taskOnGoals)
+            {
+                if (item.Goal.Id == thisGoal.Id)
+                {
+                    allTasks++;
+                    if (item.Task.Accomplishment == true)
+                        readyTasks++;
+                }
+                
+            }
+            GaugeForGoal.To = allTasks;
+            GaugeForGoal.Value = readyTasks;
+        }
+
         private void MainPage_OnLoaded(object sender, RoutedEventArgs e)
         {
             try
@@ -33,12 +68,20 @@ namespace YourGoal.Pages
                 List<Goal> goal = new List<Goal>();
                 foreach (var item in taskOnGoals)
                 {
+                    Goal thgoal = new Goal();
+                    thgoal = item.Goal;
+                    thgoal.RelationshipTasks = RelationshipTasksCounter(taskOnGoals, item.Goal);
+                    int count = thgoal.DateStart.Value.Day - thgoal.DateEnd.Value.Day;
+                    thgoal.RemainingDays = count;
                     task.Add(item.Task);
-                    goal.Add(item.Goal);
+                    goal.Add(thgoal);
                 }
-
-                AllTaskListView.ItemsSource = task.Distinct();
+                AllTaskServices allTaskServices = new AllTaskServices();
+                task = allTaskServices.GetAllTask(_user); 
+                AllTaskListView.ItemsSource = task;
+                //goal[0].RelationshipTasks = RelationshipTasksCounter(taskOnGoals, goal[0]);
                 GoalPanel.DataContext = goal[0];
+                WorkWithDiagramm(taskOnGoals, goal[0]);
                 AllHabitAndTrackerService habitService = new AllHabitAndTrackerService();
                 List<Habit> habits = habitService.GetAllHabitForUser(_user);
                 HabitsListView.ItemsSource = habits;
@@ -97,6 +140,47 @@ namespace YourGoal.Pages
             }
 
             return calendar;
-        } 
+        }
+
+        private void TasksCheckBox_OnChecked(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void HabitCheckBox_OnChecked(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void HoldButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            NavigateStackPanel.Visibility = Visibility.Collapsed;
+        }
+
+        private void MainPageTransitionButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MainPage(_user));
+        }
+
+        private void TasksPageTransitionButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new TasksPage(_user));
+        }
+
+        private void GoalPageTransitionButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new GoalPage(_user));
+        }
+
+        private void HabitPageTransitionButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new HabitPage(_user));
+        }
+        
+
+        private void NavigateButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            NavigateStackPanel.Visibility = Visibility.Visible;
+        }
     }
 }

@@ -12,5 +12,6 @@ namespace YourGoal.Models
         public User User { get; set; }
         public Folder Folder { get; set; }
         public List<Tracker> Trackers { get; set; }
+        public string Counter { get; set; }
     }
 }

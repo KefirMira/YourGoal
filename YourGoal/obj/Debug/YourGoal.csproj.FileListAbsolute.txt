@@ -348,3 +348,10 @@ C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\Pages\GoalPage.g.cs
 C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\Pages\HabitPage.g.cs
 C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\Pages\GoalPage.baml
 C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\Pages\HabitPage.baml
+C:\Users\User\RiderProjects\YourGoal\YourGoal\bin\Debug\LiveCharts.dll
+C:\Users\User\RiderProjects\YourGoal\YourGoal\bin\Debug\LiveCharts.pdb
+C:\Users\User\RiderProjects\YourGoal\YourGoal\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\User\RiderProjects\YourGoal\YourGoal\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\User\RiderProjects\YourGoal\YourGoal\bin\Debug\LiveChartsCore.dll
+C:\Users\User\RiderProjects\YourGoal\YourGoal\bin\Debug\Newtonsoft.Json.dll
+C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\YourGoal_Content.g.cs

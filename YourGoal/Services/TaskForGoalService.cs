@@ -71,7 +71,7 @@ namespace YourGoal.Services
             //полный запрос
             //NpgsqlCommand command = new NpgsqlCommand($"select t.id t_id, t.name t_name, t.dateDelete t_dateDelete, g.name g_name, g.id g_id, g.dateEnd g_dateEnd, g.dateStart d_dateStart, gf.id gf_id, gf.name gf_name, tf.id tf_id, tf.name tf_name, p.id p_id, p.name p_name from taskForGoal    join task t on taskForGoal.taskId = t.id    join goal g on g.id = taskForGoal.goalId    join folder gf on gf.id = g.folderId    join folder tf on tf.id = t.folderId    join priority p on t.priorityId = p.id where t.userId =1", _connection);
             //только таски и гоалы
-            NpgsqlCommand command = new NpgsqlCommand($"select  tfg.id tfg_id,tfg.goalId tfg_golaId, tfg.taskId tfg_taskId,t.id t_id, t.name t_name, t.dateDelete t_dateDelete, t.folderId t_folderId, t.priorityId t_priorityId, g.name g_name, g.id g_id, g.dateEnd g_dateEnd, g.dateStart g_dateStart, g.folderId g_folderId from taskForGoal tfg    join task t on tfg.taskId = t.id    join goal g on g.id = tfg.goalId where t.userId ={user.Id}", _connection);
+            NpgsqlCommand command = new NpgsqlCommand($"select  tfg.id tfg_id,tfg.goalId tfg_golaId, tfg.taskId tfg_taskId,t.id t_id, t.name t_name, t.dateDelete t_dateDelete, t.folderId t_folderId, t.priorityId t_priorityId, g.name g_name, g.id g_id, g.dateEnd g_dateEnd, g.dateStart g_dateStart, g.folderId g_folderId, t.accomplishment t_accomplishment  from taskForGoal tfg    join task t on tfg.taskId = t.id    join goal g on g.id = tfg.goalId where t.userId ={user.Id}", _connection);
             NpgsqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -82,6 +82,8 @@ namespace YourGoal.Services
                 task.User = user;
                 task.DateDelete = reader.GetDateTime(reader.GetOrdinal("t_dateDelete"));
                 task.Name = reader.GetString(reader.GetOrdinal("t_name"));
+                var accompl = reader.GetBoolean(reader.GetOrdinal("t_accomplishment"));
+                task.Accomplishment = accompl;
                 Goal goal = new Goal();
 
                 try

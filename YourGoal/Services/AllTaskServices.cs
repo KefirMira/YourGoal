@@ -21,7 +21,7 @@ namespace YourGoal.Services
             NpgsqlCommand command1 = new NpgsqlCommand("set client_encoding = 'UTF8'", _connection);
             command1.ExecuteNonQuery();
             List<Task> tasks = new List<Task>();
-            NpgsqlCommand command = new NpgsqlCommand($"select t.id t_id, t.name t_name, t.dateDelete t_deleteDate, p.name p_name,p.id p_id, f.id f_id, f.name f_name  from task t join folder f on t.folderId = f.id join priority p on p.id = t.priorityId where userId = {user.Id}", _connection);
+            NpgsqlCommand command = new NpgsqlCommand($"select t.id t_id, t.name t_name, t.dateDelete t_deleteDate, p.name p_name,p.id p_id, f.id f_id, f.name f_name,t.accomplishment t_accomplishment  from task t join folder f on t.folderId = f.id join priority p on p.id = t.priorityId where userId = {user.Id}", _connection);
             //NpgsqlCommand command = new NpgsqlCommand($"select *  from task t join folder f on t.folderId = f.id join priority p on p.id = t.priorityId where userId = {user.Id}", _connection);
             //NpgsqlCommand command = new NpgsqlCommand($"select * from task where userid={user.Id}",_connection);
             NpgsqlDataReader reader = command.ExecuteReader();
@@ -31,6 +31,8 @@ namespace YourGoal.Services
                 task.Id = Convert.ToInt32(reader.GetInt32(reader.GetOrdinal("t_id")).ToString());
                 task.Name = reader.GetString(reader.GetOrdinal("t_name")).ToString();
                 task.DateDelete = reader.GetDateTime(reader.GetOrdinal("t_deleteDate"));
+                var accompl = reader.GetBoolean(reader.GetOrdinal("t_accomplishment"));
+                task.Accomplishment = accompl;
                 Folder folder = new Folder();
                 folder.Name = reader.GetString(reader.GetOrdinal("f_name"));
                 folder.Id =   reader.GetInt32(reader.GetOrdinal("f_id"));
