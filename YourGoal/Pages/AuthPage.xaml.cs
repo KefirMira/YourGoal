@@ -20,6 +20,9 @@ namespace YourGoal.Pages
         private void LoginButton_OnClick(object sender, RoutedEventArgs e)
         {
             string Login = LoginTextBox.Text;
+            
+            
+            
             string Password = PasswordTextBox.Text;
             AllUserService au = new AllUserService();
             User user = au.AuthUser(Login, Password);
