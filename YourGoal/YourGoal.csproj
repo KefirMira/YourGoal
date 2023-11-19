@@ -61,8 +61,17 @@
         <Compile Include="Models\Task.cs" />
         <Compile Include="Models\TaskOnGoal.cs" />
         <Compile Include="Models\Tracker.cs" />
+        <Compile Include="Pages\GoalPage.xaml.cs">
+          <DependentUpon>GoalPage.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Pages\HabitPage.xaml.cs">
+          <DependentUpon>HabitPage.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Pages\MainPage.xaml.cs">
           <DependentUpon>MainPage.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Pages\PasswordRecoveryPage.xaml.cs">
+          <DependentUpon>PasswordRecoveryPage.xaml</DependentUpon>
         </Compile>
         <Compile Include="Pages\RegPage.xaml.cs">
           <DependentUpon>RegPage.xaml</DependentUpon>
@@ -90,7 +99,10 @@
             <SubType>Code</SubType>
         </Compile>
         <Page Include="Pages\AuthPage.xaml" />
+        <Page Include="Pages\GoalPage.xaml" />
+        <Page Include="Pages\HabitPage.xaml" />
         <Page Include="Pages\MainPage.xaml" />
+        <Page Include="Pages\PasswordRecoveryPage.xaml" />
         <Page Include="Pages\RegPage.xaml" />
         <Page Include="Pages\TasksPage.xaml" />
         <Page Include="src\styles\ButtonStyles.xaml" />

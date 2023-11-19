@@ -24,23 +24,30 @@ namespace YourGoal.Pages
 
         private void MainPage_OnLoaded(object sender, RoutedEventArgs e)
         {
-            List<TaskOnGoal> taskOnGoals = new List<TaskOnGoal>();
-            TaskForGoalService taskForGoalService = new TaskForGoalService();
-            taskOnGoals = taskForGoalService.GetAllTaskAndGoal(_user);
-            List<Task> task = new List<Task>();
-            List<Goal> goal = new List<Goal>();
-            foreach (var item in taskOnGoals)
+            try
             {
-                task.Add(item.Task);
-                goal.Add(item.Goal);
+                List<TaskOnGoal> taskOnGoals = new List<TaskOnGoal>();
+                TaskForGoalService taskForGoalService = new TaskForGoalService();
+                taskOnGoals = taskForGoalService.GetAllTaskAndGoal(_user);
+                List<Task> task = new List<Task>();
+                List<Goal> goal = new List<Goal>();
+                foreach (var item in taskOnGoals)
+                {
+                    task.Add(item.Task);
+                    goal.Add(item.Goal);
+                }
+
+                AllTaskListView.ItemsSource = task.Distinct();
+                GoalPanel.DataContext = goal[0];
+                AllHabitAndTrackerService habitService = new AllHabitAndTrackerService();
+                List<Habit> habits = habitService.GetAllHabitForUser(_user);
+                HabitsListView.ItemsSource = habits;
+                CalendarListView.ItemsSource = GetActualCalendar();
             }
-            
-            AllTaskListView.ItemsSource = task.Distinct();
-            GoalPanel.DataContext = goal[0];
-            AllHabitAndTrackerService habitService = new AllHabitAndTrackerService();
-            List<Habit> habits = habitService.GetAllHabitForUser(_user);
-            HabitsListView.ItemsSource = habits;
-            CalendarListView.ItemsSource = GetActualCalendar();
+            catch
+            {
+                MessageBox.Show("Ошибка считывания данных!");
+            }
         }
 
         public string GetDateName(string fullName)

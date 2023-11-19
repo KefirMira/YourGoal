@@ -7,7 +7,7 @@ namespace YourGoal.Services
 {
     public class TaskForGoalService
     {
-        private string connectionString = "Host = localhost; Database = yourgoaldb; User ID = postgres; Password= 2347 ";
+        private string connectionString = "Host = localhost; Database = yourgoaldb; User ID = postgres; Password= biba ";
         private static NpgsqlConnection _connection;
         private static NpgsqlConnection _connection2;
         public TaskForGoalService()

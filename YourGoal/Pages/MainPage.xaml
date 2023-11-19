@@ -106,12 +106,12 @@
                                     <TextBlock Text="{Binding Priority.Name}" 
                                                FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Light"
                                                FontSize="12"/> 
-                                    <!-- Время -->
-                                    <TextBlock Text="{Binding DateDelete}" 
-                                               FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Light"
-                                               FontSize="12"/>
+                                   
                                 </StackPanel>
-                                
+                                <!-- Время -->
+                                <TextBlock Text="{Binding DateDelete}" 
+                                           FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Light"
+                                           FontSize="12"/>
                                 <!-- Наименование задачи -->
                                 <TextBlock Text="{Binding Name}" 
                                            FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Medium"
@@ -119,11 +119,11 @@
                             </StackPanel>
                             <StackPanel Orientation="Vertical">
                                 <!-- Кнопка редактирования -->
-                                <Button x:Name="EditTaskButton" MaxHeight="20" MaxWidth="20">
-                                    <Image Source="../src/PencilLine.png" />
+                                <Button Margin="5" x:Name="EditTaskButton" Width="20" Height="20">
+                                    <Image Source="../src/PencilLine.png" Width="20" Height="20" />
                                 </Button>
                                 <!-- Чекбокс о выполнении -->
-                                <CheckBox Foreground="#58A4B0" MaxHeight="20" MaxWidth="20"/>
+                                <CheckBox Margin="5" Foreground="#58A4B0" Height="20" Width="20"/>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>
