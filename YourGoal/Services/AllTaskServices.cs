@@ -155,7 +155,7 @@ namespace YourGoal.Services
         {
             _connection.Open();
             string dateDelete = task.DateDelete.ToString("dd.MM.yyyy");
-            NpgsqlCommand command = new NpgsqlCommand($"insert into task(name, dateDelete, priorityId, folderId, userId,accomplishment) values ('{task.Name}','{dateDelete}','{task.Priority.Id}','{task.Folder.Id}',{task.User.Id},0)", _connection);
+            NpgsqlCommand command = new NpgsqlCommand($"insert into task(name, dateDelete, priorityId, folderId, userId,accomplishment) values ('{task.Name}','{dateDelete}','{task.Priority.Id}','{task.Folder.Id}',{task.User.Id},'0')", _connection);
             try
             {
                 command.ExecuteNonQuery();

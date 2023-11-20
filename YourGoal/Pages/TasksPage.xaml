@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:YourGoal.Pages"
       xmlns:ui="http://schemas.modernwpf.com/2019"
       mc:Ignorable="d"
-      Title="TasksPage" Height="450" Width="800" Loaded="TasksPage_OnLoaded">
+      Title="Задачи" Height="450" Width="800" Loaded="TasksPage_OnLoaded">
 <Grid ShowGridLines="True">
         
         <!-- Разметка -->

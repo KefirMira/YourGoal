@@ -205,5 +205,8 @@
     <ItemGroup>
       <Content Include="src\Hamburger_icon.svg.png" />
     </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Documents\" />
+    </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

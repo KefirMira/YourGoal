@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:YourGoal.Windows"
         xmlns:ui="http://schemas.modernwpf.com/2019"
         mc:Ignorable="d"
-        Title="AddGoalWindow" Height="400" Width="300" Loaded="AddGoalWindow_OnLoaded">
+        Title="Добавление новой цели" Height="400" Width="300" Loaded="AddGoalWindow_OnLoaded">
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock FontFamily="../src/fonts/#Gotham Pro Medium"

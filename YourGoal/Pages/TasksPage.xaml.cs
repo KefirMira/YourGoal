@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -31,7 +32,6 @@ namespace YourGoal.Pages
         private void AddFolderButton_OnClick(object sender, RoutedEventArgs e)
         {
             AddFolderWindow addFolderWindow = new AddFolderWindow(_user);
-            addFolderWindow.Content = _user;
             addFolderWindow.ShowDialog();
             this.IsEnabled = false;
             addFolderWindow.Close();
@@ -74,7 +74,7 @@ namespace YourGoal.Pages
         {
             AllTaskServices allTaskServices = new AllTaskServices();
             List<Task> tasks = allTaskServices.GetAllTask(_user);
-            string path = @"C:\Users\lenovo\RiderProjects\YourGoal\FirstProtocol.docx";
+            string path = @"..\..\Documents\"+ _user.Login+DateTime.Now.ToString("dd.MM.yyyy")+".docx";
         
             DocX document = DocX.Create(path);
             foreach (var item in tasks)
