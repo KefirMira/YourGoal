@@ -117,5 +117,20 @@ namespace YourGoal.Services
 
             return folderForGoal;
         }
+        //обновление статуса задачи
+        public bool ChangeStatusTask(Task task)
+        {
+            _connection.Open();
+            NpgsqlCommand command = new NpgsqlCommand($"update task set accomplishment = {task.Accomplishment} where task.id = {task.Id} ", _connection);
+            try
+            {
+                command.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }     
+        }
     }
 }

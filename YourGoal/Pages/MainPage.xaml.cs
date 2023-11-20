@@ -138,13 +138,14 @@ namespace YourGoal.Pages
                 }
                 calendar.Add(cal);
             }
-
             return calendar;
         }
 
         private void TasksCheckBox_OnChecked(object sender, RoutedEventArgs e)
         {
-            
+            AllTaskServices allTaskServices = new AllTaskServices();
+            Task task = AllTaskListView.SelectedItem as Task;
+            allTaskServices.ChangeStatusTask(task);
         }
 
         private void HabitCheckBox_OnChecked(object sender, RoutedEventArgs e)
@@ -181,6 +182,21 @@ namespace YourGoal.Pages
         private void NavigateButton_OnClick(object sender, RoutedEventArgs e)
         {
             NavigateStackPanel.Visibility = Visibility.Visible;
+        }
+
+        private void ToGoalButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new GoalPage(_user));
+        }
+
+        private void ToTasksButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new TasksPage(_user));
+        }
+
+        private void ToHabitButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new HabitPage(_user));
         }
     }
 }
