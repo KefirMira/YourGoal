@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:YourGoal.Pages"
       xmlns:ui="http://schemas.modernwpf.com/2019"
       mc:Ignorable="d"
-      Title="TasksPage" Height="450" Width="800">
+      Title="TasksPage" Height="450" Width="800" Loaded="TasksPage_OnLoaded">
 <Grid ShowGridLines="True">
         
         <!-- Разметка -->
@@ -24,9 +24,28 @@
         
         <!-- Календарь -->
         <Rectangle Grid.Column="2" Grid.RowSpan="3" Fill="#E8EBF3"></Rectangle>
-        <StackPanel Grid.Column="2" Grid.Row="1" Grid.RowSpan="2">
+        <StackPanel Grid.Column="2"  Grid.Row="0" Grid.RowSpan="3">
             <Calendar Width="350" Background="Transparent" 
                       Foreground="#373F51" BorderBrush="Transparent"/>
+            <StackPanel >
+                <StackPanel Margin="5" Orientation="Horizontal">
+                    <TextBlock FontSize="20" FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium">Папки</TextBlock>
+                    <Button x:Name="AddFolderButton"  Click="AddFolderButton_OnClick"
+                            Content="+" FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium"
+                            FontSize="18" BorderThickness="2" ui:ControlHelper.CornerRadius="5"
+                            MinHeight="35" BorderBrush="#58A4B0" Foreground="#58A4B0"
+                            Margin="5"></Button>
+                </StackPanel>
+                <ListView x:Name="FolderListView" Margin="5" SelectionChanged="FolderListView_OnSelectionChanged">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Name}" FontSize="20" FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
         </StackPanel>
         
         <!-- Кнопка на главную -->
@@ -47,7 +66,7 @@
             <TextBlock Text="Ваши задачи" Margin="10" FontSize="22" Width="150" Foreground="#373F51"
                        FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium" />
             
-            <Button Name="AddBtn" Margin="5" VerticalAlignment="Top"
+            <Button Name="AddBtn" Margin="5" VerticalAlignment="Top"  Click="AddBtn_OnClick"
                     Content="+" FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium"
                     FontSize="18" BorderThickness="2" ui:ControlHelper.CornerRadius="5"
                     MinHeight="35" BorderBrush="#58A4B0" Foreground="#58A4B0"/>
@@ -62,7 +81,6 @@
                         <StackPanel Orientation="Horizontal">
                             <StackPanel Orientation="Vertical">
                                 <StackPanel Orientation="Horizontal" Background="#F1F4FA">
-                                    
                                     <!-- Папка -->
                                     <Image Source="../src/iconFolder.png" 
                                            MaxHeight="12" MaxWidth="12"/>

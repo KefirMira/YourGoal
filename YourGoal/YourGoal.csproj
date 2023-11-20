@@ -86,6 +86,12 @@
         <Compile Include="Services\AllTaskServices.cs" />
         <Compile Include="Services\AllUserService.cs" />
         <Compile Include="Services\TaskForGoalService.cs" />
+        <Compile Include="Windows\AddFolderWindow.xaml.cs">
+          <DependentUpon>AddFolderWindow.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Windows\AddTaskWindow.xaml.cs">
+          <DependentUpon>AddTaskWindow.xaml</DependentUpon>
+        </Compile>
         <Page Include="MainWindow.xaml">
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
@@ -106,6 +112,8 @@
         <Page Include="Pages\RegPage.xaml" />
         <Page Include="Pages\TasksPage.xaml" />
         <Page Include="src\styles\ButtonStyles.xaml" />
+        <Page Include="Windows\AddFolderWindow.xaml" />
+        <Page Include="Windows\AddTaskWindow.xaml" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Models\User.cs" />

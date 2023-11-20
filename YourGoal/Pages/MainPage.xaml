@@ -206,7 +206,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- Кнопка добавления -->
-                        <Button>+</Button>
+                        <Button x:Name="ChangeButton" Click="ChangeButton_OnClick">+</Button>
                         <!-- График -->
                         <wpf:Gauge x:Name="GaugeForGoal" Width="100" Height="100" From="0" To="50">
                             <wpf:Gauge.GaugeActiveFill>

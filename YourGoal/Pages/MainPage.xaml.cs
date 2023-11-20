@@ -198,5 +198,10 @@ namespace YourGoal.Pages
         {
             NavigationService.Navigate(new HabitPage(_user));
         }
+
+        private void ChangeButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new GoalPage(_user));
+        }
     }
 }

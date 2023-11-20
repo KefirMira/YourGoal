@@ -14,8 +14,9 @@ namespace YourGoal.Services
             _connection = new NpgsqlConnection(connectionString);
         }
         //все папки
-        public static List<Folder> GetFolders()
+        public  List<Folder> GetFolders()
         {
+            _connection.Open();
             List<Folder> folders = new List<Folder>();
             NpgsqlCommand command = new NpgsqlCommand($"select * from folder", _connection);
             NpgsqlDataReader reader = command.ExecuteReader();
@@ -31,9 +32,9 @@ namespace YourGoal.Services
             return folders;
         }
         //создание новой
-        public static bool CreateNewFolder(string nameFolder)
+        public  bool CreateNewFolder(string nameFolder)
         {
-            
+            _connection.Open();
             NpgsqlCommand command = new NpgsqlCommand($"insert into folder(name) values ('{nameFolder}');", _connection);
             try
             {

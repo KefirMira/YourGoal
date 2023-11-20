@@ -132,5 +132,6 @@ namespace YourGoal.Services
                 return false;
             }     
         }
+        //Создание цели
     }
 }

@@ -355,3 +355,7 @@ C:\Users\User\RiderProjects\YourGoal\YourGoal\bin\Debug\LiveCharts.Wpf.pdb
 C:\Users\User\RiderProjects\YourGoal\YourGoal\bin\Debug\LiveChartsCore.dll
 C:\Users\User\RiderProjects\YourGoal\YourGoal\bin\Debug\Newtonsoft.Json.dll
 C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\YourGoal_Content.g.cs
+C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\Windows\AddFolderWindow.g.cs
+C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\Windows\AddTaskWindow.g.cs
+C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\Windows\AddFolderWindow.baml
+C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\Windows\AddTaskWindow.baml
