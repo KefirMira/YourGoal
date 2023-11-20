@@ -1,11 +1,12 @@
 using System.Windows;
+using YourGoal.Models;
 using YourGoal.Services;
 
 namespace YourGoal.Windows
 {
     public partial class AddFolderWindow : Window
     {
-        public AddFolderWindow()
+        public AddFolderWindow(User user)
         {
             InitializeComponent();
         }

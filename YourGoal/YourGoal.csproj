@@ -89,6 +89,9 @@
         <Compile Include="Windows\AddFolderWindow.xaml.cs">
           <DependentUpon>AddFolderWindow.xaml</DependentUpon>
         </Compile>
+        <Compile Include="Windows\AddGoalWindow.xaml.cs">
+          <DependentUpon>AddGoalWindow.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Windows\AddTaskWindow.xaml.cs">
           <DependentUpon>AddTaskWindow.xaml</DependentUpon>
         </Compile>
@@ -113,6 +116,7 @@
         <Page Include="Pages\TasksPage.xaml" />
         <Page Include="src\styles\ButtonStyles.xaml" />
         <Page Include="Windows\AddFolderWindow.xaml" />
+        <Page Include="Windows\AddGoalWindow.xaml" />
         <Page Include="Windows\AddTaskWindow.xaml" />
     </ItemGroup>
     <ItemGroup>

@@ -133,5 +133,19 @@ namespace YourGoal.Services
             }     
         }
         //Создание цели
+        public bool AddNewTask(Task task)
+        {
+            _connection.Open();
+            NpgsqlCommand command = new NpgsqlCommand($"insert into task(name, dateDelete, priorityId, folderId, userId) values ('{task.Name}',{task.DateDelete},{task.Priority.Id},{task.Folder.Id},{task.User.Id})", _connection);
+            try
+            {
+                command.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }     
+        }
     }
 }

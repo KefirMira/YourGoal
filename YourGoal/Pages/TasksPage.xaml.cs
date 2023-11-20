@@ -9,7 +9,7 @@ namespace YourGoal.Pages
 {
     public partial class TasksPage : Page
     {
-        private User _user;
+        User _user;
         public TasksPage()
         {
             InitializeComponent();
@@ -18,7 +18,7 @@ namespace YourGoal.Pages
         public TasksPage(User user)
         {
             InitializeComponent();
-            _user = new User();
+            _user = user;
         }
 
         private void GoMainBtn_OnClick(object sender, RoutedEventArgs e)
@@ -28,7 +28,8 @@ namespace YourGoal.Pages
 
         private void AddFolderButton_OnClick(object sender, RoutedEventArgs e)
         {
-            AddFolderWindow addFolderWindow = new AddFolderWindow();
+            AddFolderWindow addFolderWindow = new AddFolderWindow(_user);
+            addFolderWindow.Content = _user;
             addFolderWindow.ShowDialog();
             this.IsEnabled = false;
             addFolderWindow.Close();
@@ -51,7 +52,8 @@ namespace YourGoal.Pages
             Lode();
         }
         
-        public void Lode(){
+        public void Lode()
+        {
             AllTaskServices allTaskServices = new AllTaskServices();
             AllFolderService allFolderService = new AllFolderService();
             List<Task> tasks = allTaskServices.GetAllTask(_user);

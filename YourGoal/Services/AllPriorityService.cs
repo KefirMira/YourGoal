@@ -14,8 +14,9 @@ namespace YourGoal.Services
             _connection = new NpgsqlConnection(connectionString);
         }
         //все приоритеты
-        public static List<Priority> GetFolders()
+        public  List<Priority> GetFolders()
         {
+            _connection.Open();
             List<Priority> priorities = new List<Priority>();
             NpgsqlCommand command = new NpgsqlCommand($"select * from priority", _connection);
             NpgsqlDataReader reader = command.ExecuteReader();
