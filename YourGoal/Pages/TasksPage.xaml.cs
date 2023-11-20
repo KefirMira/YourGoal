@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using Xceed.Document.NET;
+using Xceed.Words.NET;
 using YourGoal.Models;
 using YourGoal.Services;
 using YourGoal.Windows;
@@ -66,6 +68,35 @@ namespace YourGoal.Pages
         private void FolderListView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             
+        }
+
+        private void PrintButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            AllTaskServices allTaskServices = new AllTaskServices();
+            List<Task> tasks = allTaskServices.GetAllTask(_user);
+            string path = @"C:\Users\lenovo\RiderProjects\YourGoal\FirstProtocol.docx";
+        
+            DocX document = DocX.Create(path);
+            foreach (var item in tasks)
+            {
+                Paragraph paragraph = document.InsertParagraph();
+                paragraph.AppendLine($"Наименование - {item.Name}\n Категория - {item.Folder.Name}\n Приоритет - {item.Priority.Name}\n Дата окончания - {item.DateDelete}")
+                    .Font("Times New Roman")
+                    .FontSize(12)
+                    .Alignment = Alignment.center;
+            }
+            document.Save();
+        }
+
+        private void AllTaskListView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Task selectedTask = AllTaskListView.SelectedItem as Task;
+            AddTaskWindow addTaskWindow = new AddTaskWindow(_user,selectedTask);
+            addTaskWindow.ShowDialog();
+            this.IsEnabled = false;
+            addTaskWindow.Close();
+            this.IsEnabled = true;
+            Lode();
         }
     }
 }

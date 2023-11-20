@@ -8,7 +8,7 @@ namespace YourGoal.Services
 {
     public class AllTaskServices
     {
-        private string connectionString = "Host = localhost; Database = yourgoaldb; User ID = postgres; Password= biba ";
+        private string connectionString = "Host = localhost; Database = yourgoaldb; User ID = postgres; Password= 2347 ";
         private static NpgsqlConnection _connection;
         public AllTaskServices()
         {
@@ -132,6 +132,24 @@ namespace YourGoal.Services
                 return false;
             }     
         }
+        
+        //обновление задачи
+        public bool ChangeTask(Task task)
+        {
+            _connection.Open();
+            string dateDelete = task.DateDelete.ToString("dd.MM.yyyy");
+            NpgsqlCommand command = new NpgsqlCommand($"update task set folderId={task.Folder.Id}, priorityId={task.Priority.Id},name='{task.Name}',dateDelete='{dateDelete}' where id={task.Id} ", _connection);
+            try
+            {
+                command.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }     
+        }
+        
         //Создание задачи
         public bool AddNewTask(Task task)
         {

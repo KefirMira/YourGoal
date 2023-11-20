@@ -4,9 +4,160 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:YourGoal.Pages"
+      xmlns:ui="http://schemas.modernwpf.com/2019"
+      xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       mc:Ignorable="d"
-      Title="GoalPage" Height="450" Width="800">
+      Title="GoalPage" Height="450" Width="800" Loaded="GoalPage_OnLoaded">
     <Grid>
+        
+        <!-- Разметка -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3.3*"/>
+            <ColumnDefinition Width="3.3*"/>
+            <ColumnDefinition Width="350"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Календарь -->
+        <Rectangle Grid.Column="2" Grid.RowSpan="3" Fill="#E8EBF3"></Rectangle>
+        <StackPanel Grid.Column="2"  Grid.Row="0" Grid.RowSpan="3">
+            <Calendar Width="350" Background="Transparent" 
+                      Foreground="#373F51" BorderBrush="Transparent"/>
+            <StackPanel >
+                <StackPanel Margin="5" Orientation="Horizontal">
+                    <TextBlock FontSize="20" FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium">Папки</TextBlock>
+                    <Button x:Name="AddFolderButton"  Click="AddFolderButton_OnClick"
+                            Content="+" FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium"
+                            FontSize="18" BorderThickness="2" ui:ControlHelper.CornerRadius="5"
+                            MinHeight="35" BorderBrush="#58A4B0" Foreground="#58A4B0"
+                            Margin="5"></Button>
+                </StackPanel>
+                <ListView x:Name="FolderListView" Margin="5" SelectionChanged="FolderListView_OnSelectionChanged">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Name}" FontSize="20" FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </StackPanel>
+        
+        <!-- Кнопка на главную -->
+        <StackPanel Grid.Column="1" Grid.Row="0">
+            <Button Margin="10" Name="GoMainBtn" Content="На главную"
+                   MinWidth="140" BorderThickness="2"
+                   MinHeight="35" BorderBrush="#58A4B0" Foreground="#58A4B0"
+                   ui:ControlHelper.CornerRadius="20"
+                   Click="GoMainBtn_OnClick"
+                   VerticalAlignment="Center" HorizontalAlignment="Right"
+                   FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium" />
+        </StackPanel>
+        
+        <!-- Заголовок и кнопка -->
+        <StackPanel Grid.Column="0" Grid.Row="1"  
+                    HorizontalAlignment="Left" Orientation="Horizontal">
+            
+            <TextBlock Text="Ваши цели" Margin="10" FontSize="22" Width="150" Foreground="#373F51"
+                       FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium" />
+            
+            <Button Name="AddBtn" Margin="5" VerticalAlignment="Top"  Click="AddBtn_OnClick"
+                    Content="+" FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium"
+                    FontSize="18" BorderThickness="2" ui:ControlHelper.CornerRadius="5"
+                    MinHeight="35" BorderBrush="#58A4B0" Foreground="#58A4B0"/>
+            
+        </StackPanel>
+        
+        <!-- Лист -->
+        <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
+        <ListView x:Name="AllGoalListView" Height="300" Width="450">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" ></StackPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                    <DataTemplate>
+                       
+        <!-- Цели -->
+        <StackPanel 
+            Orientation="Vertical" Margin="5">
+            
+            <StackPanel Orientation="Horizontal" Margin="10">
+                
+                <TextBlock FontFamily="../src/fonts/#Gotham Pro Medium"
+                           FontSize="18" Text="Цели" Foreground="#373F51"/>
+                
+             
+            </StackPanel>
+            <StackPanel x:Name="GoalPanel"
+                Orientation="Vertical" Background="#F0F3FA">
+                
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    
+                    <Button x:Name="LeftButton" MaxHeight="20" MaxWidth="20" 
+                            BorderBrush="#58A4B0" BorderThickness="2" 
+                            ui:ControlHelper.CornerRadius="3">
+                        <Image Source="../src/iconArrow.png"/>
+                    </Button>
+                    
+                    <!-- Наименование цели -->
+                    <TextBlock Text="{Binding Name}" 
+                               FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Medium"
+                               FontSize="18"/>
+                    
+                    <Button x:Name="RightButton" MaxHeight="20" MaxWidth="20" 
+                            BorderBrush="#58A4B0" BorderThickness="2"
+                            ui:ControlHelper.CornerRadius="3">
+                        <Image Source="../src/iconArrow.png"/>
+                    </Button>
+                </StackPanel>
+                <!-- Описание цели -->
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical" >
+                        <TextBlock Margin="10" FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Normal"
+                                   FontSize="12" Text="Прогресс" Foreground="#373F51"/>
+                        <!-- Прогресс -->
+                        <TextBlock Margin="10" Text="{ Binding RelationshipTasks}" 
+                                   FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Light"
+                                   FontSize="11" Foreground="#373F51"/>
+                        <!-- Дата выполнения или создания -->
+                        <TextBlock Text="{Binding DateEnd, StringFormat=dd.mm.yyyy}" 
+                                   FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Normal"
+                                   FontSize="11" Foreground="#373F51"/>
+                        <!-- Осталось дней -->
+                        <TextBlock Text="{ Binding RemainingDays}" 
+                                   FontFamily="..src/fonts/#Gotnam Pro" FontWeight="Medium"
+                                   FontSize="12" Foreground="#373F51"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- Кнопка добавления -->
+                        <Button x:Name="ChangeButton" Click="ChangeButton_OnClick">+</Button>
+                        <!-- График -->
+                        <wpf:Gauge x:Name="GaugeForGoal" Value="{Binding ReadyTasks}"  Width="100" Height="100" From="0" To="{Binding AllTasks}">
+                            <wpf:Gauge.GaugeActiveFill>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#58A4B0" Offset="0.0"></GradientStop>
+                                    <GradientStop Color="#58A4B0" Offset="0.5"></GradientStop>
+                                    <GradientStop Color="#58A4B0"  Offset="1.0"></GradientStop>
+                                </LinearGradientBrush>
+                            </wpf:Gauge.GaugeActiveFill>
+                            
+                        </wpf:Gauge>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
         
     </Grid>
 </Page>

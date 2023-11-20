@@ -12,6 +12,9 @@ namespace YourGoal.Models
         public Folder Folder { get; set; }
         public string RelationshipTasks { get; set; }
         public int RemainingDays { get; set; }
+
+        public int AllTasks { get; set; }
+        public int ReadyTasks { get; set; }
         //public List<Task> Tasks { get; set; }
     }
 }

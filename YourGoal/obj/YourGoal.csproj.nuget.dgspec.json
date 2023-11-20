@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\RiderProjects\\YourGoal\\YourGoal\\YourGoal.csproj": {}
+    "C:\\Users\\lenovo\\RiderProjects\\YourGoal\\YourGoal\\YourGoal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\RiderProjects\\YourGoal\\YourGoal\\YourGoal.csproj": {
+    "C:\\Users\\lenovo\\RiderProjects\\YourGoal\\YourGoal\\YourGoal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\RiderProjects\\YourGoal\\YourGoal\\YourGoal.csproj",
+        "projectUniqueName": "C:\\Users\\lenovo\\RiderProjects\\YourGoal\\YourGoal\\YourGoal.csproj",
         "projectName": "YourGoal",
-        "projectPath": "C:\\Users\\User\\RiderProjects\\YourGoal\\YourGoal\\YourGoal.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\RiderProjects\\YourGoal\\YourGoal\\obj\\",
+        "projectPath": "C:\\Users\\lenovo\\RiderProjects\\YourGoal\\YourGoal\\YourGoal.csproj",
+        "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lenovo\\RiderProjects\\YourGoal\\YourGoal\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -38,6 +38,10 @@
       "frameworks": {
         "net48": {
           "dependencies": {
+            "DocX": {
+              "target": "Package",
+              "version": "[2.5.0, )"
+            },
             "LiveCharts.Wpf": {
               "target": "Package",
               "version": "[0.9.7, )"
@@ -136,6 +140,9 @@
       },
       "runtimes": {
         "win": {
+          "#import": []
+        },
+        "win-arm64": {
           "#import": []
         },
         "win-x64": {

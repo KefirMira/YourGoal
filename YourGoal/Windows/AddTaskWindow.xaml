@@ -11,16 +11,16 @@
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock FontFamily="../src/fonts/#Gotham Pro Medium"
                        FontSize="25" Text="Новая цель" Foreground="#373F51"></TextBlock>
-            <TextBox Margin="10" x:Name="NameTextBox"
+            <TextBox Text="{Binding Name}" Margin="10" x:Name="NameTextBox"
                      ui:ControlHelper.PlaceholderText="Наименование" MinHeight="40"
                      ui:ControlHelper.CornerRadius="10" Padding="10"
                      FontSize="14" FontFamily="../src/fonts/#Gotham Pro Light" />
-            <DatePicker Margin="10" x:Name="DateDeleteTextBox"
+            <DatePicker SelectedDate="{Binding DateDelete}" Margin="10" x:Name="DateDeleteTextBox"
                      ui:ControlHelper.PlaceholderText="Дата окончания отслеживания" MinHeight="40"
                      ui:ControlHelper.CornerRadius="10" Padding="10"
                      FontSize="14"  FontFamily="../src/fonts/#Gotham Pro Light" />
-            <ComboBox MinWidth="150" Margin="5" FontSize="16" FontFamily="../src/fonts/#Gotham Pro" HorizontalAlignment="Center" x:Name="PriorityComboBox" DisplayMemberPath="Name" ></ComboBox>
-            <ComboBox  MinWidth="150" Margin="5" FontSize="16" FontFamily="../src/fonts/#Gotham Pro" HorizontalAlignment="Center" x:Name="FolderComboBox" DisplayMemberPath="Name" ></ComboBox>
+            <ComboBox SelectedItem="{Binding Priority.Name}" MinWidth="150" Margin="5" FontSize="16" FontFamily="../src/fonts/#Gotham Pro" HorizontalAlignment="Center" x:Name="PriorityComboBox" DisplayMemberPath="Name" ></ComboBox>
+            <ComboBox SelectedItem="{Binding Folder.Name}"   MinWidth="150" Margin="5" FontSize="16" FontFamily="../src/fonts/#Gotham Pro" HorizontalAlignment="Center" x:Name="FolderComboBox" DisplayMemberPath="Name" ></ComboBox>
             <Button  x:Name="AddButton" Style="{StaticResource AccentButton}" 
                     Content="Создать" Margin="5" HorizontalAlignment="Center" 
                     FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium"

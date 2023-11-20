@@ -7,7 +7,7 @@ namespace YourGoal.Services
 {
     public class AllPriorityService
     {
-        private string connectionString = "Host = localhost; Database = yourgoaldb; User ID = postgres; Password= biba";
+        private string connectionString = "Host = localhost; Database = yourgoaldb; User ID = postgres; Password= 2347";
         private static NpgsqlConnection _connection;
         public AllPriorityService()
         {

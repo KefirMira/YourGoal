@@ -57,10 +57,11 @@
                    Click="GoMainBtn_OnClick"
                    VerticalAlignment="Center" HorizontalAlignment="Right"
                    FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium" />
+            
         </StackPanel>
         
         <!-- Заголовок и кнопка -->
-        <StackPanel Grid.Column="0" Grid.Row="1"  
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"  
                     HorizontalAlignment="Left" Orientation="Horizontal">
             
             <TextBlock Text="Ваши задачи" Margin="10" FontSize="22" Width="150" Foreground="#373F51"
@@ -70,12 +71,20 @@
                     Content="+" FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium"
                     FontSize="18" BorderThickness="2" ui:ControlHelper.CornerRadius="5"
                     MinHeight="35" BorderBrush="#58A4B0" Foreground="#58A4B0"/>
+            <Button x:Name="PrintButton" Content="Напечатать"
+                    MinWidth="140" BorderThickness="2"
+                    Margin="5"
+                    MinHeight="35" BorderBrush="#58A4B0" Foreground="#58A4B0"
+                    ui:ControlHelper.CornerRadius="20"
+                    Click="PrintButton_OnClick"
+                    VerticalAlignment="Top" HorizontalAlignment="Right"
+                    FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium"></Button>
             
         </StackPanel>
         
         <!-- Лист -->
         <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
-        <ListView x:Name="AllTaskListView" Height="300">
+        <ListView x:Name="AllTaskListView" SelectionChanged="AllTaskListView_OnSelectionChanged" Height="300">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">

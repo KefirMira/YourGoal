@@ -8,6 +8,7 @@ namespace YourGoal.Windows
     public partial class AddGoalWindow : Window
     {
         User _user;
+        Goal _goal;
         public AddGoalWindow()
         {
             InitializeComponent();
@@ -16,6 +17,14 @@ namespace YourGoal.Windows
         {
             InitializeComponent();
             _user = user;
+        }
+        
+        //апдейт
+        public AddGoalWindow(User user,Goal goal )
+        {
+            InitializeComponent();
+            _user = user;
+            _goal = goal;
         }
 
 
@@ -33,6 +42,7 @@ namespace YourGoal.Windows
                     newGoal.Name = NameTextBox.Text;
                     newGoal.DateEnd = Convert.ToDateTime(DateEndTextBox.SelectedDate);
                     allGoalServices.AddNewGoal(newGoal);
+                    MessageBox.Show("Успешно!");
                 }
                 catch
                 {

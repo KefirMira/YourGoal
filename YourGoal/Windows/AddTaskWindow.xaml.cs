@@ -8,6 +8,7 @@ namespace YourGoal.Windows
     public partial class AddTaskWindow : Window
     {
          User _user;
+         private Task _task;
         public AddTaskWindow()
         {
             InitializeComponent();
@@ -16,32 +17,50 @@ namespace YourGoal.Windows
         {
             InitializeComponent();
             _user = user;
+            _task = new Task();
+        }
+        //апедейт
+        public AddTaskWindow(User user, Task task)
+        {
+            InitializeComponent();
+            _user = user;
+            _task = task;
+            this.DataContext = _task;
         }
         
 
         private void AddButton_OnClick(object sender, RoutedEventArgs e)
         {
             AllTaskServices allTaskServices = new AllTaskServices();
-            if (NameTextBox.Text != "" && DateDeleteTextBox.Text != "" && DateDeleteTextBox.SelectedDate > DateTime.Now)
+
+            if (_task.Id == 0)
             {
-                Task newTask = new Task();
-                try
+                if (NameTextBox.Text != "" && DateDeleteTextBox.Text != "" && DateDeleteTextBox.SelectedDate > DateTime.Now)
                 {
-                    if(FolderComboBox.SelectedItem!=null)
-                        newTask.Folder = FolderComboBox.SelectedItem as Folder;
-                    if(PriorityComboBox.SelectedItem!=null)
-                        newTask.Priority = PriorityComboBox.SelectedItem as Priority;
-                    newTask.User = _user;
-                    newTask.Accomplishment = false;
-                    newTask.Name = NameTextBox.Text;
-                    newTask.DateDelete = Convert.ToDateTime(DateDeleteTextBox.SelectedDate);
-                    allTaskServices.AddNewTask(newTask);
+                    Task newTask = new Task();
+                    try
+                    {
+                        if(FolderComboBox.SelectedItem!=null)
+                            newTask.Folder = FolderComboBox.SelectedItem as Folder;
+                        if(PriorityComboBox.SelectedItem!=null)
+                            newTask.Priority = PriorityComboBox.SelectedItem as Priority;
+                        newTask.User = _user;
+                        newTask.Accomplishment = false;
+                        newTask.Name = NameTextBox.Text;
+                        newTask.DateDelete = Convert.ToDateTime(DateDeleteTextBox.SelectedDate);
+                        allTaskServices.AddNewTask(newTask);
+                        MessageBox.Show("Успешно!");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Ошибка создания задачи!");
+                    }
                 }
-                catch
-                {
-                    MessageBox.Show("Ошибка создания задачи!");
-                }
-                
+            }
+            else
+            {
+                if (allTaskServices.ChangeTask(_task))
+                    MessageBox.Show("Успешно!");
             }
             
         }
