@@ -132,11 +132,12 @@ namespace YourGoal.Services
                 return false;
             }     
         }
-        //Создание цели
+        //Создание задачи
         public bool AddNewTask(Task task)
         {
             _connection.Open();
-            NpgsqlCommand command = new NpgsqlCommand($"insert into task(name, dateDelete, priorityId, folderId, userId) values ('{task.Name}',{task.DateDelete},{task.Priority.Id},{task.Folder.Id},{task.User.Id})", _connection);
+            string dateDelete = task.DateDelete.ToString("dd.MM.yyyy");
+            NpgsqlCommand command = new NpgsqlCommand($"insert into task(name, dateDelete, priorityId, folderId, userId,accomplishment) values ('{task.Name}','{dateDelete}','{task.Priority.Id}','{task.Folder.Id}',{task.User.Id},0)", _connection);
             try
             {
                 command.ExecuteNonQuery();

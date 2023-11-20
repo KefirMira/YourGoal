@@ -359,3 +359,5 @@ C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\Windows\AddFolderWindow.
 C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\Windows\AddTaskWindow.g.cs
 C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\Windows\AddFolderWindow.baml
 C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\Windows\AddTaskWindow.baml
+C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\Windows\AddGoalWindow.g.cs
+C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\Windows\AddGoalWindow.baml

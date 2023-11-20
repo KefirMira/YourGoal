@@ -39,7 +39,7 @@ namespace YourGoal.Pages
 
         private void AddBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            AddTaskWindow addTaskWindow = new AddTaskWindow();
+            AddTaskWindow addTaskWindow = new AddTaskWindow(_user);
             addTaskWindow.ShowDialog();
             this.IsEnabled = false;
             addTaskWindow.Close();

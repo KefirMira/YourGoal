@@ -104,7 +104,7 @@
                 
             </StackPanel>
             
-            <ListView x:Name="AllTaskListView"  Width="265">
+            <ListView x:Name="AllTaskListView"  Width="265" Height="350">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Width="250">

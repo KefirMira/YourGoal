@@ -71,7 +71,7 @@ namespace YourGoal.Pages
                     Goal thgoal = new Goal();
                     thgoal = item.Goal;
                     thgoal.RelationshipTasks = RelationshipTasksCounter(taskOnGoals, item.Goal);
-                    int count = thgoal.DateStart.Value.Day - thgoal.DateEnd.Value.Day;
+                    int count = thgoal.DateStart.Day - thgoal.DateEnd.Day;
                     thgoal.RemainingDays = count;
                     task.Add(item.Task);
                     goal.Add(thgoal);

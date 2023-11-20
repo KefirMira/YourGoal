@@ -4,9 +4,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:YourGoal.Windows"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
         mc:Ignorable="d"
-        Title="AddGoalWindow" Height="450" Width="800">
+        Title="AddGoalWindow" Height="400" Width="300" Loaded="AddGoalWindow_OnLoaded">
     <Grid>
-        
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock FontFamily="../src/fonts/#Gotham Pro Medium"
+                       FontSize="25" Text="Новая цель" Foreground="#373F51"></TextBlock>
+            <TextBox Margin="10" x:Name="NameTextBox"
+                     ui:ControlHelper.PlaceholderText="Наименование" MinHeight="40"
+                     ui:ControlHelper.CornerRadius="10" Padding="10"
+                     FontSize="14" FontFamily="../src/fonts/#Gotham Pro Light" />
+            <DatePicker Margin="10" x:Name="DateStartTextBox"
+                        ui:ControlHelper.PlaceholderText="Дата начала" MinHeight="40"
+                        ui:ControlHelper.CornerRadius="10" Padding="10"
+                        FontSize="14"  FontFamily="../src/fonts/#Gotham Pro Light" />
+            <DatePicker Margin="10" x:Name="DateEndTextBox"
+                        ui:ControlHelper.PlaceholderText="Дата окончания" MinHeight="40"
+                        ui:ControlHelper.CornerRadius="10" Padding="10"
+                        FontSize="14"  FontFamily="../src/fonts/#Gotham Pro Light" />
+            <ComboBox  MinWidth="150" Margin="5" FontSize="16" FontFamily="../src/fonts/#Gotham Pro" HorizontalAlignment="Center" x:Name="FolderComboBox" DisplayMemberPath="Name" ></ComboBox>
+            <Button  x:Name="AddButton" Style="{StaticResource AccentButton}" 
+                     Content="Создать" Margin="5" HorizontalAlignment="Center" 
+                     FontFamily="../src/fonts/#Gotham Pro" FontWeight="Medium"
+                     Click="AddButton_OnClick" MinWidth="150" MinHeight="30" FontSize="16" />
+        </StackPanel>
     </Grid>
 </Window>

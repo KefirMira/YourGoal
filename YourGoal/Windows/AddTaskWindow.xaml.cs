@@ -22,7 +22,7 @@ namespace YourGoal.Windows
         private void AddButton_OnClick(object sender, RoutedEventArgs e)
         {
             AllTaskServices allTaskServices = new AllTaskServices();
-            if (NameTextBox.Text != "" && DateDeleteTextBox.Text != "" && DateDeleteTextBox.SelectedDate < DateTime.Now)
+            if (NameTextBox.Text != "" && DateDeleteTextBox.Text != "" && DateDeleteTextBox.SelectedDate > DateTime.Now)
             {
                 Task newTask = new Task();
                 try
@@ -32,6 +32,7 @@ namespace YourGoal.Windows
                     if(PriorityComboBox.SelectedItem!=null)
                         newTask.Priority = PriorityComboBox.SelectedItem as Priority;
                     newTask.User = _user;
+                    newTask.Accomplishment = false;
                     newTask.Name = NameTextBox.Text;
                     newTask.DateDelete = Convert.ToDateTime(DateDeleteTextBox.SelectedDate);
                     allTaskServices.AddNewTask(newTask);

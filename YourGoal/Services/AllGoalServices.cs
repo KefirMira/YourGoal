@@ -86,6 +86,22 @@ namespace YourGoal.Services
             return folderForGoal;
         }
         #endregion
-        
+        //Создание цели
+        public bool AddNewGoal(Goal goal)
+        {
+            _connection.Open();
+            string dateStart = goal.DateStart.ToString("dd.MM.yyyy");
+            string dateEnd = goal.DateEnd.ToString("dd.MM.yyyy");
+            NpgsqlCommand command = new NpgsqlCommand($"insert into goal(name, dateStart, dateEnd, folderId) values ('{goal.Name}','{dateStart}','{dateEnd}',{goal.Folder.Id})", _connection);
+            try
+            {
+                command.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }     
+        }
     }
 }

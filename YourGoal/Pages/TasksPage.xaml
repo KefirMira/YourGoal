@@ -75,7 +75,7 @@
         
         <!-- Лист -->
         <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
-        <ListView x:Name="AllTaskListView">
+        <ListView x:Name="AllTaskListView" Height="300">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
