@@ -6,7 +6,7 @@ namespace YourGoal.Windows
 {
     public partial class AddFolderWindow : Window
     {
-        public AddFolderWindow(User user)
+        public AddFolderWindow()
         {
             InitializeComponent();
         }

@@ -361,3 +361,9 @@ C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\Windows\AddFolderWindow.
 C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\Windows\AddTaskWindow.baml
 C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\Windows\AddGoalWindow.g.cs
 C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\Windows\AddGoalWindow.baml
+C:\Users\User\RiderProjects\YourGoal\YourGoal\bin\Debug\Xceed.Document.NET.dll
+C:\Users\User\RiderProjects\YourGoal\YourGoal\bin\Debug\Xceed.Words.NET.dll
+C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\Windows\AddHabitWindow.g.cs
+C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\Windows\AddHabitWindow.baml
+C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\Windows\DiagramWindow.g.cs
+C:\Users\User\RiderProjects\YourGoal\YourGoal\obj\Debug\Windows\DiagramWindow.baml

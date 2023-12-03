@@ -28,7 +28,7 @@ namespace YourGoal.Pages
 
         private void AddFolderButton_OnClick(object sender, RoutedEventArgs e)
         {
-            AddFolderWindow addFolderWindow = new AddFolderWindow(_user);
+            AddFolderWindow addFolderWindow = new AddFolderWindow();
             addFolderWindow.Content = _user;
             addFolderWindow.ShowDialog();
             this.IsEnabled = false;

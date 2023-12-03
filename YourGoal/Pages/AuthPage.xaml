@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:YourGoal.Pages"
       xmlns:ui="http://schemas.modernwpf.com/2019"
       mc:Ignorable="d"
-      Title="AuthPage"  Background="#F6F9FF">
+      Title="AuthPage"  Background="#F6F9FF" MaxWidth="1800" MaxHeight="1200">
 
     <Grid ShowGridLines="True">
 

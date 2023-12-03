@@ -7,7 +7,7 @@
       xmlns:ui="http://schemas.modernwpf.com/2019"
       xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       mc:Ignorable="d"
-      Title="MainPage" Width="800" Height="600" Background="#F6F9FF" Loaded="MainPage_OnLoaded">
+      Title="MainPage" MaxWidth="1800" MaxHeight="1200" Background="#F6F9FF" Loaded="MainPage_OnLoaded">
     
     <Grid ShowGridLines="True">
         

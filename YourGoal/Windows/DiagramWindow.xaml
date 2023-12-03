@@ -1,0 +1,13 @@
+<Window x:Class="YourGoal.Windows.DiagramWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:YourGoal.Windows"
+        xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        mc:Ignorable="d"
+        Title="DiagramWindow" Height="450" Width="800">
+    <Grid>
+        <wpf:PieChart x:Name="pipChart"/>
+    </Grid>
+</Window>

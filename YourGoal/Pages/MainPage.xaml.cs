@@ -83,7 +83,7 @@ namespace YourGoal.Pages
                 GoalPanel.DataContext = goal[0];
                 WorkWithDiagramm(taskOnGoals, goal[0]);
                 AllHabitAndTrackerService habitService = new AllHabitAndTrackerService();
-                List<Habit> habits = habitService.GetAllHabitForUser(_user);
+                List<Habit> habits = habitService.GetAllHabitForUser(_user,DateTime.Now);
                 HabitsListView.ItemsSource = habits;
                 CalendarListView.ItemsSource = GetActualCalendar();
             }

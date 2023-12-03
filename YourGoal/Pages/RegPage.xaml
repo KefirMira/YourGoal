@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:YourGoal.Pages"
       xmlns:ui="http://schemas.modernwpf.com/2019"
       mc:Ignorable="d"
-      Title="RegPage" Height="600" Width="800" Background="#F6F9FF">
+      Title="RegPage" MaxWidth="1800" MaxHeight="1200" Background="#F6F9FF">
 
     <Grid ShowGridLines="True">
 

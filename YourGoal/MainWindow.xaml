@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         ui:WindowHelper.UseModernWindowStyle="True"
         ResizeMode="NoResize"
-        Title="MainWindow" MaxWidth="800" MaxHeight="600" Height="600" Width="800">
+        Title="MainWindow" MaxWidth="1800" MaxHeight="1200" Height="1200" Width="1800">
     <Grid>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" ></Frame>
     </Grid>

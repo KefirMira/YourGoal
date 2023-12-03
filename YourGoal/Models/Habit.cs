@@ -13,5 +13,6 @@ namespace YourGoal.Models
         public Folder Folder { get; set; }
         public List<Tracker> Trackers { get; set; }
         public string Counter { get; set; }
+        public bool thAc { get; set; }
     }
 }

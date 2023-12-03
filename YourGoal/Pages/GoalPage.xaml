@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:YourGoal.Pages"
       mc:Ignorable="d"
-      Title="GoalPage" Height="450" Width="800">
+      Title="GoalPage" MaxWidth="1800" MaxHeight="1200">
     <Grid>
         
     </Grid>
